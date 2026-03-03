@@ -1,0 +1,9 @@
+# Ignore massive raw media files
+_design-and-wip/raw-media/*
+*.mp4
+*.mov
+*.wav
+
+# Only allow specific, optimized web videos (if you want them in git)
+!web-app/public/videos/*.webm
+!web-app/public/videos/*-optimized.mp4
