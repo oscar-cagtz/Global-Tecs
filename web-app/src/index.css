@@ -6,6 +6,12 @@ html {
   scroll-behavior: smooth;
 }
 
+@layer base {
+  html, body {
+    @apply bg-black text-white;
+  }
+}
+
 /* Optional custom scrollbar for that Apple feel */
 ::-webkit-scrollbar {
   width: 8px;
