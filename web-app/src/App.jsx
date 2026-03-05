@@ -9,13 +9,14 @@ import {
 // Lucide svg icon imports:
 import {
    ChevronRight,
+   Download,
    Globe,
-   Menu,
-   X,
    Mail,
    MapPin,
+   Menu,
    Phone,
    Send,
+   X,
    Facebook,
    Instagram,
    Twitter
@@ -165,7 +166,7 @@ export default function App() {
             </div>
          </section>
          {/************************************ PRODUCTS ************************************/}
-         <section id="hardware" className="py-32 bg-black relative border-t border-white/5">
+        <section id="hardware" className="py-32 bg-black relative border-t border-white/5">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                   <div>
@@ -177,7 +178,6 @@ export default function App() {
                   </p>
                </div>
 
-               {/* [UPDATE]: Divided products into Indoor and Outdoor LED screens */}
                <div className="space-y-20">
                   {/********************* OUTDOOR LED SCREENS *********************/}
                   <div>
@@ -187,10 +187,13 @@ export default function App() {
                      </div>
                      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         {/* Outdoor Spec Card 1 */}
-                        <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-8 hover:border-zinc-700 transition-all">
+                        <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-6 hover:border-zinc-700 transition-all flex flex-col">
+                           <div className="w-full aspect-square bg-zinc-800/30 rounded-2xl mb-6 flex items-center justify-center p-6 border border-white/5">
+                              <img src={`${import.meta.env.BASE_URL}led_screen_1.png`} alt="P3.9 Outdoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
+                           </div>
                            <h5 className="text-2xl font-bold mb-1">P3.9 Outdoor</h5>
                            <p className="text-gray-500 text-sm mb-8">SMD 1921 High-Bright</p>
-                           <div className="space-y-6">
+                           <div className="space-y-6 flex-1">
                               <div>
                                  <div className="text-4xl font-light text-white mb-1">5,000<span className="text-lg text-gray-500 ml-1">nits</span></div>
                                  <div className="text-xs text-gray-400 uppercase tracking-wider">Peak Brightness</div>
@@ -201,13 +204,19 @@ export default function App() {
                                  <div className="text-xs text-gray-400 uppercase tracking-wider">Refresh Rate</div>
                               </div>
                            </div>
+                           <a href="/specs/P3.9_Outdoor_Specs.pdf" download className="mt-8 w-full bg-white text-black font-semibold py-3.5 rounded-xl hover:bg-gray-200 transition-colors flex justify-center items-center gap-2">
+                              <Download size={18} /> Download Specs
+                           </a>
                         </div>
 
                         {/* Outdoor Spec Card 2 */}
-                        <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-8 hover:border-zinc-700 transition-all">
+                        <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-6 hover:border-zinc-700 transition-all flex flex-col">
+                           <div className="w-full aspect-square bg-zinc-800/30 rounded-2xl mb-6 flex items-center justify-center p-6 border border-white/5">
+                              <img src={`${import.meta.env.BASE_URL}led_screen_1.png`} alt="P4.8 Outdoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
+                           </div>
                            <h5 className="text-2xl font-bold mb-1">P4.8 Outdoor</h5>
                            <p className="text-gray-500 text-sm mb-8">SMD 2727 Heavy Duty</p>
-                           <div className="space-y-6">
+                           <div className="space-y-6 flex-1">
                               <div>
                                  <div className="text-4xl font-light text-white mb-1">6,000<span className="text-lg text-gray-500 ml-1">nits</span></div>
                                  <div className="text-xs text-gray-400 uppercase tracking-wider">Peak Brightness</div>
@@ -218,6 +227,9 @@ export default function App() {
                                  <div className="text-xs text-gray-400 uppercase tracking-wider">Refresh Rate</div>
                               </div>
                            </div>
+                           <a href="/specs/P4.8_Outdoor_Specs.pdf" download className="mt-8 w-full bg-white text-black font-semibold py-3.5 rounded-xl hover:bg-gray-200 transition-colors flex justify-center items-center gap-2">
+                              <Download size={18} /> Download Specs
+                           </a>
                         </div>
 
                         {/* View All Outdoor */}
@@ -239,10 +251,13 @@ export default function App() {
                      </div>
                      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         {/* Indoor Spec Card 1 */}
-                        <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-8 hover:border-zinc-700 transition-all">
+                        <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-6 hover:border-zinc-700 transition-all flex flex-col">
+                           <div className="w-full aspect-square bg-zinc-800/30 rounded-2xl mb-6 flex items-center justify-center p-6 border border-white/5">
+                              <img src={`${import.meta.env.BASE_URL}led_screen_2.png`} alt="P2.6 Indoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
+                           </div>
                            <h5 className="text-2xl font-bold mb-1">P2.6 Indoor</h5>
                            <p className="text-gray-500 text-sm mb-8">SMD 1515 Ultra Fine</p>
-                           <div className="space-y-6">
+                           <div className="space-y-6 flex-1">
                               <div>
                                  <div className="text-4xl font-light text-white mb-1">1,200<span className="text-lg text-gray-500 ml-1">nits</span></div>
                                  <div className="text-xs text-gray-400 uppercase tracking-wider">Peak Brightness</div>
@@ -253,13 +268,19 @@ export default function App() {
                                  <div className="text-xs text-gray-400 uppercase tracking-wider">Refresh Rate</div>
                               </div>
                            </div>
+                           <a href="/specs/P2.6_Indoor_Specs.pdf" download className="mt-8 w-full bg-white text-black font-semibold py-3.5 rounded-xl hover:bg-gray-200 transition-colors flex justify-center items-center gap-2">
+                              <Download size={18} /> Download Specs
+                           </a>
                         </div>
 
                         {/* Indoor Spec Card 2 */}
-                        <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-8 hover:border-zinc-700 transition-all">
+                        <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-6 hover:border-zinc-700 transition-all flex flex-col">
+                           <div className="w-full aspect-square bg-zinc-800/30 rounded-2xl mb-6 flex items-center justify-center p-6 border border-white/5">
+                              <img src={`${import.meta.env.BASE_URL}led_screen_2.png`} alt="P3.9 Indoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
+                           </div>
                            <h5 className="text-2xl font-bold mb-1">P3.9 Indoor</h5>
                            <p className="text-gray-500 text-sm mb-8">SMD 2020 Black Face</p>
-                           <div className="space-y-6">
+                           <div className="space-y-6 flex-1">
                               <div>
                                  <div className="text-4xl font-light text-white mb-1">1,000<span className="text-lg text-gray-500 ml-1">nits</span></div>
                                  <div className="text-xs text-gray-400 uppercase tracking-wider">Peak Brightness</div>
@@ -270,6 +291,9 @@ export default function App() {
                                  <div className="text-xs text-gray-400 uppercase tracking-wider">Viewing Angle</div>
                               </div>
                            </div>
+                           <a href="/specs/P3.9_Indoor_Specs.pdf" download className="mt-8 w-full bg-white text-black font-semibold py-3.5 rounded-xl hover:bg-gray-200 transition-colors flex justify-center items-center gap-2">
+                              <Download size={18} /> Download Specs
+                           </a>
                         </div>
 
                         {/* View All Indoor */}
@@ -386,11 +410,9 @@ export default function App() {
                   <h2 className="text-blue-500 font-semibold tracking-widest uppercase text-sm mb-4">Get In Touch</h2>
                   <h3 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Let's build your next stage.</h3>
                   <p className="text-gray-400 max-w-2xl mx-auto">
-                     Whether you need a full stadium LED package or a custom corporate setup, our team is ready to deploy through North America.
+                     Whether you need a large-scale stadium LED package or a custom corporate setup, our team is ready to deploy through North America.
                   </p>
                </div>
-
-               {/* [UPDATE]: Removed 'items-start' from the grid so both columns stretch to match heights */}
                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8">
                   {/* Left Column: Contact Information Cards */}
                   <div className="space-y-6">
@@ -415,18 +437,18 @@ export default function App() {
                            <h4 className="text-white font-medium text-lg mb-4">Give us a call</h4>
                            <div className="space-y-3">
                               <div className="flex justify-between items-start border-b border-white/5 pb-3">
-                                 <span className="text-gray-400 text-sm font-medium">CANADA</span>
+                                 <span className="flex items-center gap-2 text-gray-400 text-sm font-medium">🇨🇦 CANADA</span>
                                  <div className="text-right">
                                     <a href="tel:+17785516808" className="text-white hover:text-blue-400 transition-colors block text-sm mb-1">+1 (778) 551 6808</a>
                                     <a href="tel:+16045059359" className="text-white hover:text-blue-400 transition-colors block text-sm">+1 (604) 505 9359</a>
                                  </div>
                               </div>
                               <div className="flex justify-between items-center border-b border-white/5 pb-3">
-                                 <span className="text-gray-400 text-sm font-medium">USA</span>
+                                 <span className="flex items-center gap-2 text-gray-400 text-sm font-medium">🇺🇸 USA</span>
                                  <a href="tel:+17736283154" className="text-white hover:text-blue-400 transition-colors text-sm">+1 (773) 628 3154</a>
                               </div>
                               <div className="flex justify-between items-center">
-                                 <span className="text-gray-400 text-sm font-medium">MEXICO</span>
+                                 <span className="flex items-center gap-2 text-gray-400 text-sm font-medium">🇲🇽 MEXICO</span>
                                  <a href="tel:+524612906582" className="text-white hover:text-blue-400 transition-colors text-sm">+52 (461) 290 6582</a>
                               </div>
                            </div>
@@ -454,10 +476,20 @@ export default function App() {
                            <h4 className="text-white font-medium text-lg mb-1">Follow Us</h4>
                            <p className="text-gray-400 text-sm mb-3">@globaltecscanada</p>
                            <div className="flex gap-4">
-                              <a href="#" className="bg-white/5 p-2 rounded-lg text-white hover:bg-blue-500 hover:text-white transition-all">
+                              <a
+                                 href="https://www.instagram.com/globaltecscanada"
+                                 target="_blank"
+                                 rel="noopener noreferrer"
+                                 className="bg-white/5 p-2 rounded-lg text-white hover:bg-[#E1306C] hover:text-white transition-all"
+                              >
                                  <Instagram size={20} />
                               </a>
-                              <a href="#" className="bg-white/5 p-2 rounded-lg text-white hover:bg-blue-500 hover:text-white transition-all">
+                              <a
+                                 href="https://www.facebook.com/globaltecscanada"
+                                 target="_blank"
+                                 rel="noopener noreferrer"
+                                 className="bg-white/5 p-2 rounded-lg text-white hover:bg-[#1877F2] hover:text-white transition-all"
+                              >
                                  <Facebook size={20} />
                               </a>
                            </div>
@@ -465,9 +497,7 @@ export default function App() {
                      </div>
                   </div>
                   {/* Right Column: Glassmorphism Contact Form */}
-                  {/* [UPDATE]: Added 'flex flex-col h-full' to make the card background stretch */}
                   <div className="bg-zinc-900/30 backdrop-blur-md border border-white/10 rounded-3xl p-8 lg:p-10 flex flex-col h-full">
-                     {/* [UPDATE]: Added 'flex-1 flex flex-col' to the form to take up the inner height */}
                      <form className="space-y-6 flex-1 flex flex-col" onSubmit={(e) => e.preventDefault()}>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                            {/* First Name */}
@@ -512,7 +542,6 @@ export default function App() {
                         </div>
 
                         {/* Project Details */}
-                        {/* [UPDATE]: Wrapped textarea in 'flex-1 flex flex-col' and added 'flex-1' to the textarea itself */}
                         <div className="space-y-2 flex-1 flex flex-col">
                            <label className="text-sm font-medium text-gray-400">Message</label>
                            <textarea
