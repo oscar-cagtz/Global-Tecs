@@ -23,8 +23,8 @@ import {
 } from 'lucide-react';
 
 // Global-Tecs logo:
-import gtDarkLogo  from './assets/logos/logo_dark.png';
-//import gtLightLogo from './assets/logos/logo_light.png'; // Enable if there's any need for a light theme.
+import gtDarkLogo  from './assets/logos/logo_dark.webp';
+//import gtLightLogo from './assets/logos/logo_light.ebp'; // Enable if there's any need for a light theme.
 
 /////////////////////////////////////// APPLICATION ///////////////////////////////////////
 
@@ -135,7 +135,7 @@ export default function App() {
             {/****************************** BACKGROUND IMAGE *******************************/}
             <div className="absolute inset-0 z-0 bg-black">
                <img
-                  src={`${import.meta.env.BASE_URL}hero_bg.png`}
+                  src={`${import.meta.env.BASE_URL}hero_bg.webp`}
                   alt="Massive LED Concert Stage"
                   className="w-full h-full object-cover opacity-50"
                   onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1540039155733-d7696d4eb5d4?q=80&w=2074&auto=format&fit=crop" }}
@@ -165,6 +165,60 @@ export default function App() {
                </div>
             </div>
          </section>
+         {/******************************* TRUSTED BY / PARTNERS *****************************/}
+         <section className="py-16 md:py-24 bg-black relative border-t border-white/5 overflow-hidden">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+               <h2 className="text-center text-blue-500 font-semibold tracking-widest uppercase text-sm mb-4">Trusted By</h2>
+               <h3 className="text-center text-3xl md:text-4xl font-bold tracking-tight text-white">Powering the world's biggest stages.</h3>
+            </div>
+
+            {/* Carousel Container */}
+            <div className="relative w-full flex overflow-hidden">
+               {/* Left/Right Fade Gradients (Apple style) */}
+               <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
+               <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
+
+               {/* Animated Track */}
+               <div className="flex w-max animate-scroll hover:[animation-play-state:paused]">
+                  {/* First Set of Logos */}
+                  <div className="flex shrink-0 gap-16 md:gap-32 items-center px-8 md:px-16">
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_alazraki.webp`} alt="Alazraki S"  className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_azteca.webp`}   alt="TV Azteca"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_centralc.webp`} alt="Central C"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_gorgo.webp`}    alt="Gorgomish"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_gracies.webp`}  alt="Gracies"     className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_lba.webp`}      alt="LBA"         className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_ocesa.webp`}    alt="OCESA"       className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_open.webp`}     alt="Mexico Open" className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_pga.webp`}      alt="PGA"         className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_redracer.webp`} alt="Redracer"    className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_salinas.webp`}  alt="G Salinas"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_smt.webp`}      alt="SMT"         className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_studionc.webp`} alt="Studio NC"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_tec.webp`}      alt="Tec de MTY"  className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_vidanta.webp`}  alt="Vidanta"     className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                  </div>
+                  {/* Second Set (Exact Duplicate for seamless loop illusion) */}
+                  <div className="flex shrink-0 gap-16 md:gap-32 items-center px-8 md:px-16">
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_alazraki.webp`} alt="Alazraki S"  className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_azteca.webp`}   alt="TV Azteca"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_centralc.webp`} alt="Central C"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_gorgo.webp`}    alt="Gorgomish"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_gracies.webp`}  alt="Gracies"     className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_lba.webp`}      alt="LBA"         className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_ocesa.webp`}    alt="OCESA"       className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_open.webp`}     alt="Mexico Open" className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_pga.webp`}      alt="PGA"         className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_redracer.webp`} alt="Redracer"    className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_salinas.webp`}  alt="G Salinas"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_smt.webp`}      alt="SMT"         className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_studionc.webp`} alt="Studio NC"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_tec.webp`}      alt="Tec de MTY"  className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={`${import.meta.env.BASE_URL}partner_logos/logo_vidanta.webp`}  alt="Vidanta"     className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                  </div>
+               </div>
+            </div>
+         </section>
          {/************************************ PRODUCTS ************************************/}
          <section id="hardware" className="py-16 md:py-32 bg-black relative border-t border-white/5">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -189,7 +243,7 @@ export default function App() {
                         {/* Outdoor Spec Card 1 */}
                         <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-6 hover:border-zinc-700 transition-all flex flex-col">
                            <div className="w-full aspect-square bg-zinc-800/30 rounded-2xl mb-6 flex items-center justify-center p-6 border border-white/5">
-                              <img src={`${import.meta.env.BASE_URL}led_screen_1.png`} alt="P3.9 Outdoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
+                              <img src={`${import.meta.env.BASE_URL}led_screen_1.webp`} alt="P3.9 Outdoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
                            </div>
                            <h5 className="text-2xl font-bold mb-1">P3.9 Outdoor</h5>
                            <p className="text-gray-500 text-sm mb-8">SMD 1921 High-Bright</p>
@@ -212,7 +266,7 @@ export default function App() {
                         {/* Outdoor Spec Card 2 */}
                         <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-6 hover:border-zinc-700 transition-all flex flex-col">
                            <div className="w-full aspect-square bg-zinc-800/30 rounded-2xl mb-6 flex items-center justify-center p-6 border border-white/5">
-                              <img src={`${import.meta.env.BASE_URL}led_screen_1.png`} alt="P4.8 Outdoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
+                              <img src={`${import.meta.env.BASE_URL}led_screen_1.webp`} alt="P4.8 Outdoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
                            </div>
                            <h5 className="text-2xl font-bold mb-1">P4.8 Outdoor</h5>
                            <p className="text-gray-500 text-sm mb-8">SMD 2727 Heavy Duty</p>
@@ -253,7 +307,7 @@ export default function App() {
                         {/* Indoor Spec Card 1 */}
                         <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-6 hover:border-zinc-700 transition-all flex flex-col">
                            <div className="w-full aspect-square bg-zinc-800/30 rounded-2xl mb-6 flex items-center justify-center p-6 border border-white/5">
-                              <img src={`${import.meta.env.BASE_URL}led_screen_2.png`} alt="P2.6 Indoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
+                              <img src={`${import.meta.env.BASE_URL}led_screen_2.webp`} alt="P2.6 Indoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
                            </div>
                            <h5 className="text-2xl font-bold mb-1">P2.6 Indoor</h5>
                            <p className="text-gray-500 text-sm mb-8">SMD 1515 Ultra Fine</p>
@@ -276,7 +330,7 @@ export default function App() {
                         {/* Indoor Spec Card 2 */}
                         <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-6 hover:border-zinc-700 transition-all flex flex-col">
                            <div className="w-full aspect-square bg-zinc-800/30 rounded-2xl mb-6 flex items-center justify-center p-6 border border-white/5">
-                              <img src={`${import.meta.env.BASE_URL}led_screen_2.png`} alt="P3.9 Indoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
+                              <img src={`${import.meta.env.BASE_URL}led_screen_2.webp`} alt="P3.9 Indoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
                            </div>
                            <h5 className="text-2xl font-bold mb-1">P3.9 Indoor</h5>
                            <p className="text-gray-500 text-sm mb-8">SMD 2020 Black Face</p>
