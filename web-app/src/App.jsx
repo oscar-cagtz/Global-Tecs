@@ -166,7 +166,7 @@ export default function App() {
             </div>
          </section>
          {/************************************ PRODUCTS ************************************/}
-        <section id="hardware" className="py-32 bg-black relative border-t border-white/5">
+         <section id="hardware" className="py-16 md:py-32 bg-black relative border-t border-white/5">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                   <div>
@@ -178,7 +178,7 @@ export default function App() {
                   </p>
                </div>
 
-               <div className="space-y-20">
+               <div className="space-y-12 md:space-y-20">
                   {/********************* OUTDOOR LED SCREENS *********************/}
                   <div>
                      <div className="flex items-center gap-4 mb-8 border-b border-white/10 pb-4">
@@ -310,10 +310,10 @@ export default function App() {
             </div>
          </section>
          {/************************************ ABOUT US ************************************/}
-         <section id="about" className="py-32 bg-black relative border-t border-white/5">
+         <section id="about" className="py-16 md:py-32 bg-black relative border-t border-white/5">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                {/* Gallery: Apple-Style Bento Box */}
-               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-32">
+               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 md:mb-32">
                   {/* Large Featured Highlight */}
                   <div className="md:col-span-2 aspect-[4/3] md:aspect-auto rounded-3xl overflow-hidden relative group border border-white/10">
                      {/* Replace src with your local gallery image */}
@@ -403,14 +403,14 @@ export default function App() {
             </div>
          </section>
          {/************************************ CONTACTS ************************************/}
-         <section id="contact" className="py-32 bg-black relative border-t border-white/5">
+         <section id="contact" className="py-16 md:py-32 bg-black relative border-t border-white/5">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                {/* Section Header */}
                <div className="text-center mb-16">
                   <h2 className="text-blue-500 font-semibold tracking-widest uppercase text-sm mb-4">Get In Touch</h2>
                   <h3 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Let's build your next stage.</h3>
                   <p className="text-gray-400 max-w-2xl mx-auto">
-                     Whether you need a large-scale stadium LED package or a custom corporate setup, our team is ready to deploy through North America.
+                     Whether you need a large-scale stadium-sized LED package or a custom corporate setup, our team is ready to deploy through North America.
                   </p>
                </div>
                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8">
