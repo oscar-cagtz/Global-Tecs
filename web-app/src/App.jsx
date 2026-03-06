@@ -51,6 +51,114 @@ function WIPPage({ title }) {
    );
 }
 
+// Reusable Project Card Template for Sub-Pages
+function ProjectCard({ title, description, images }) {
+   return (
+      <div className="bg-zinc-900/30 backdrop-blur-sm border border-white/10 rounded-3xl p-6 lg:p-10 mb-12 flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+         {/* Left Side: Project Info */}
+         <div className="w-full lg:w-1/3 space-y-4">
+            <h3 className="text-3xl font-bold text-white">{title}</h3>
+            <p className="text-gray-400 leading-relaxed text-sm md:text-base">{description}</p>
+            <button className="text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1 group pt-2 text-sm uppercase tracking-widest">
+               View Details <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </button>
+         </div>
+         
+         {/* Right Side: Horizontal Image Carousel (Apple Style Native Scroll) */}
+         {/* Uses invisible scrollbars for a clean look */}
+         <div className="w-full lg:w-2/3 flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            {images.map((img, idx) => (
+               <div key={idx} className="min-w-[85%] sm:min-w-[60%] shrink-0 snap-center aspect-video rounded-2xl overflow-hidden border border-white/10 relative group bg-zinc-800">
+                  <img 
+                     src={img} 
+                     alt={`${title} - Gallery Image ${idx + 1}`} 
+                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                  />
+               </div>
+            ))}
+         </div>
+      </div>
+   );
+}
+
+// Sub-Page Template: Sports
+function SportsPage({ region }) {
+   // This array makes it incredibly easy to add new projects later
+   const sportsProjects = [
+      {
+         title: "National Stadium Perimeter",
+         description: "A comprehensive 360-degree LED perimeter display deployed for the national soccer championship. Engineered for maximum visibility under direct sunlight and high-speed broadcast refresh rates without flickering on camera.",
+         images: [
+            "https://images.unsplash.com/photo-1508344928928-7137b29de216?q=80&w=2070&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?q=80&w=2123&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1518605368461-1e1e38ce8fba?q=80&w=2070&auto=format&fit=crop"
+         ]
+      },
+      {
+         title: "Arena Center-Hung JumboTron",
+         description: "Custom fabrication and deployment of a massive center-hung P3.9 indoor display. Designed to provide crystal-clear replays and live stats to 20,000+ fans from any angle in the arena.",
+         images: [
+            "https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=2069&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1905&auto=format&fit=crop"
+         ]
+      },
+      {
+         title: "Extreme Sports Outdoor Rig",
+         description: "Temporary structural rigging and high-brightness LED deployment for a major outdoor extreme sports competition. Built to withstand extreme weather conditions while delivering 6,000 nits of brightness.",
+         images: [
+            "https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=2070&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1562077981-4d7e0d24fea8?q=80&w=2070&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?q=80&w=2029&auto=format&fit=crop"
+         ]
+      }
+   ];
+
+   return (
+      <div className="bg-black min-h-screen pt-16"> {/* pt-16 offsets the fixed navbar */}
+         {/* Mini Hero Section */}
+         <section className="relative h-[50vh] md:h-[60vh] flex flex-col items-center justify-center overflow-hidden border-b border-white/10">
+            <div className="absolute inset-0 z-0 bg-black">
+               <img
+                  src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=2070&auto=format&fit=crop"
+                  alt="Sports Arena"
+                  className="w-full h-full object-cover opacity-40"
+               />
+               <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black"></div>
+            </div>
+            
+            <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
+               <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-6 text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-gray-500">
+                  SPORTS
+               </h1>
+               <p className="text-lg md:text-2xl text-gray-300 max-w-2xl mx-auto font-light">
+                  Elevating the fan experience with high-refresh, broadcast-ready LED displays engineered for stadiums, arenas, and global tournaments.
+               </p>
+            </div>
+         </section>
+
+         {/* Projects Section */}
+         <section className="py-24 bg-black relative">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+               <div className="mb-16">
+                  <h2 className="text-blue-500 font-semibold tracking-widest uppercase text-sm mb-4">Case Studies</h2>
+                  <h3 className="text-3xl md:text-5xl font-bold tracking-tight text-white">Recent Deployments.</h3>
+               </div>
+               
+               {/* Maps through the array and renders a ProjectCard for each one */}
+               {sportsProjects.map((proj, idx) => (
+                  <ProjectCard 
+                     key={idx} 
+                     title={proj.title} 
+                     description={proj.description} 
+                     images={proj.images} 
+                  />
+               ))}
+            </div>
+         </section>
+      </div>
+   );
+}
+
 function HomePage({ region }) {
    return (
       <>
@@ -613,7 +721,7 @@ export default function App() {
          case 'live-events': return <WIPPage title="Live Events" />;
          case 'corporate':   return <WIPPage title="Corporate" />;
          case 'nightlife':   return <WIPPage title="Nightlife" />;
-         case 'sports':      return <WIPPage title="Sports" />;
+         case 'sports':      return <SportsPage region={region} />;
          case 'broadcast':   return <WIPPage title="Broadcast" />;
          case 'advertising': return <WIPPage title="Advertising" />;
          case 'it-av':       return <WIPPage title="IT/AV" />;
@@ -648,12 +756,12 @@ export default function App() {
                   {/*************************** DESKTOP NAVIGATION **************************/}
                   <div className="hidden lg:block overflow-x-auto">
                      <div className="ml-8 flex items-baseline space-x-6 text-xs font-semibold text-gray-300 uppercase tracking-widest">
-                        <button onClick={() => navigateTo('live-events')} className={`hover:text-white transition-colors ${currentPage === 'live-events' ? 'text-white' : ''}`}>Live Events</button>
-                        <button onClick={() => navigateTo('corporate')}   className={`hover:text-white transition-colors ${currentPage === 'corporate'   ? 'text-white' : ''}`}>Corporate</button>
-                        <button onClick={() => navigateTo('nightlife')}   className={`hover:text-white transition-colors ${currentPage === 'nightlife'   ? 'text-white' : ''}`}>Nightlife</button>
-                        <button onClick={() => navigateTo('sports')}      className={`hover:text-white transition-colors ${currentPage === 'sports'      ? 'text-white' : ''}`}>Sports</button>
-                        <button onClick={() => navigateTo('broadcast')}   className={`hover:text-white transition-colors ${currentPage === 'broadcast'   ? 'text-white' : ''}`}>Broadcast</button>
-                        <button onClick={() => navigateTo('advertising')} className={`hover:text-white transition-colors ${currentPage === 'advertising' ? 'text-white' : ''}`}>Advertising</button>
+                        <button onClick={() => navigateTo('live-events')} className={`hover:text-white transition-colors ${currentPage === 'live-events' ? 'text-white' : ''}`}>LIVE EVENTS</button>
+                        <button onClick={() => navigateTo('corporate')}   className={`hover:text-white transition-colors ${currentPage === 'corporate'   ? 'text-white' : ''}`}>CORPORATE</button>
+                        <button onClick={() => navigateTo('nightlife')}   className={`hover:text-white transition-colors ${currentPage === 'nightlife'   ? 'text-white' : ''}`}>NIGHTLIFE</button>
+                        <button onClick={() => navigateTo('sports')}      className={`hover:text-white transition-colors ${currentPage === 'sports'      ? 'text-white' : ''}`}>SPORTS</button>
+                        <button onClick={() => navigateTo('broadcast')}   className={`hover:text-white transition-colors ${currentPage === 'broadcast'   ? 'text-white' : ''}`}>BROADCAST</button>
+                        <button onClick={() => navigateTo('advertising')} className={`hover:text-white transition-colors ${currentPage === 'advertising' ? 'text-white' : ''}`}>ADVERTISING</button>
                         <button onClick={() => navigateTo('it-av')}       className={`hover:text-white transition-colors ${currentPage === 'it-av'       ? 'text-white' : ''}`}>IT/AV </button>
                      </div>
                   </div>
@@ -689,12 +797,12 @@ export default function App() {
             {mobileMenuOpen && (
                <div className="lg:hidden bg-black/95 backdrop-blur-xl border-b border-white/10 absolute w-full">
                   <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
-                     <button onClick={() => navigateTo('live-events')} className="block w-full px-3 py-3 text-gray-300 hover:text-white text-lg">Live Events</button>
-                     <button onClick={() => navigateTo('corporate')}   className="block w-full px-3 py-3 text-gray-300 hover:text-white text-lg">Corporate</button>
-                     <button onClick={() => navigateTo('nightlife')}   className="block w-full px-3 py-3 text-gray-300 hover:text-white text-lg">Nightlife</button>
-                     <button onClick={() => navigateTo('sports')}      className="block w-full px-3 py-3 text-gray-300 hover:text-white text-lg">Sports</button>
-                     <button onClick={() => navigateTo('broadcast')}   className="block w-full px-3 py-3 text-gray-300 hover:text-white text-lg">Broadcast</button>
-                     <button onClick={() => navigateTo('advertising')} className="block w-full px-3 py-3 text-gray-300 hover:text-white text-lg">Advertising</button>
+                     <button onClick={() => navigateTo('live-events')} className="block w-full px-3 py-3 text-gray-300 hover:text-white text-lg">LIVE EVENTS</button>
+                     <button onClick={() => navigateTo('corporate')}   className="block w-full px-3 py-3 text-gray-300 hover:text-white text-lg">CORPORATE</button>
+                     <button onClick={() => navigateTo('nightlife')}   className="block w-full px-3 py-3 text-gray-300 hover:text-white text-lg">NIGHTLIFE</button>
+                     <button onClick={() => navigateTo('sports')}      className="block w-full px-3 py-3 text-gray-300 hover:text-white text-lg">SPORTS</button>
+                     <button onClick={() => navigateTo('broadcast')}   className="block w-full px-3 py-3 text-gray-300 hover:text-white text-lg">BROADCAST</button>
+                     <button onClick={() => navigateTo('advertising')} className="block w-full px-3 py-3 text-gray-300 hover:text-white text-lg">ADVERTISING</button>
                      <button onClick={() => navigateTo('it-av')}       className="block w-full px-3 py-3 text-gray-300 hover:text-white text-lg">IT/AV</button>
 
                      <div className="flex justify-center items-center gap-2 pt-4 border-t border-white/10 mt-2 text-gray-300">
