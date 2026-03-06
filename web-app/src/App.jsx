@@ -163,59 +163,68 @@ function HomePage({ region }) {
                         <span className="bg-zinc-800 text-gray-300 text-xs px-2 py-1 rounded">IP65 Rated</span>
                      </div>
                      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        
+                        {/* [UPDATE]: Restructured product cards to be horizontal on mobile (flex-row) and vertical on desktop (lg:flex-col) */}
                         {/* Outdoor Spec Card 1 */}
-                        <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-6 hover:border-zinc-700 transition-all flex flex-col">
-                           <div className="w-full aspect-square bg-zinc-800/30 rounded-2xl mb-6 flex items-center justify-center p-6 border border-white/5">
+                        <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-5 lg:p-6 hover:border-zinc-700 transition-all flex flex-row lg:flex-col gap-5 lg:gap-0">
+                           <div className="w-1/3 lg:w-full shrink-0 aspect-square bg-zinc-800/30 rounded-2xl mb-0 lg:mb-6 flex items-center justify-center p-3 lg:p-6 border border-white/5 h-fit">
                               <img src={`${import.meta.env.BASE_URL}/gallery/home/led_screen_1.webp`} alt="P3.9 Outdoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
                            </div>
-                           <h5 className="text-2xl font-bold mb-1">P3.9 Outdoor</h5>
-                           <p className="text-gray-500 text-sm mb-8">SMD 1921 High-Bright</p>
-                           <div className="space-y-6 flex-1">
-                              <div>
-                                 <div className="text-4xl font-light text-white mb-1">5,000<span className="text-lg text-gray-500 ml-1">nits</span></div>
-                                 <div className="text-xs text-gray-400 uppercase tracking-wider">Peak Brightness</div>
+                           <div className="flex flex-col flex-1">
+                              <h5 className="text-xl lg:text-2xl font-bold mb-1">P3.9 Outdoor</h5>
+                              <p className="text-gray-500 text-xs lg:text-sm mb-4 lg:mb-8">SMD 1921 High-Bright</p>
+                              <div className="space-y-3 lg:space-y-6 flex-1">
+                                 <div>
+                                    <div className="text-2xl lg:text-4xl font-light text-white mb-0.5 lg:mb-1">5,000<span className="text-sm lg:text-lg text-gray-500 ml-1">nits</span></div>
+                                    <div className="text-[10px] lg:text-xs text-gray-400 uppercase tracking-wider">Peak Brightness</div>
+                                 </div>
+                                 <div className="h-px w-full bg-gradient-to-r from-zinc-800 to-transparent"></div>
+                                 <div>
+                                    <div className="text-2xl lg:text-4xl font-light text-white mb-0.5 lg:mb-1">3840<span className="text-sm lg:text-lg text-gray-500 ml-1">Hz</span></div>
+                                    <div className="text-[10px] lg:text-xs text-gray-400 uppercase tracking-wider">Refresh Rate</div>
+                                 </div>
                               </div>
-                              <div className="h-px w-full bg-gradient-to-r from-zinc-800 to-transparent"></div>
-                              <div>
-                                 <div className="text-4xl font-light text-white mb-1">3840<span className="text-lg text-gray-500 ml-1">Hz</span></div>
-                                 <div className="text-xs text-gray-400 uppercase tracking-wider">Refresh Rate</div>
-                              </div>
+                              <a href="/specs/P3.9_Outdoor_Specs.pdf" download className="mt-5 lg:mt-8 w-full bg-white text-black font-semibold py-2.5 lg:py-3.5 text-sm lg:text-base rounded-xl hover:bg-gray-200 transition-colors flex justify-center items-center gap-2">
+                                 <Download className="w-4 h-4 lg:w-[18px] lg:h-[18px]" /> Download Specs
+                              </a>
                            </div>
-                           <a href="/specs/P3.9_Outdoor_Specs.pdf" download className="mt-8 w-full bg-white text-black font-semibold py-3.5 rounded-xl hover:bg-gray-200 transition-colors flex justify-center items-center gap-2">
-                              <Download size={18} /> Download Specs
-                           </a>
                         </div>
 
+                        {/* [UPDATE]: Restructured product cards to be horizontal on mobile */}
                         {/* Outdoor Spec Card 2 */}
-                        <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-6 hover:border-zinc-700 transition-all flex flex-col">
-                           <div className="w-full aspect-square bg-zinc-800/30 rounded-2xl mb-6 flex items-center justify-center p-6 border border-white/5">
+                        <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-5 lg:p-6 hover:border-zinc-700 transition-all flex flex-row lg:flex-col gap-5 lg:gap-0">
+                           <div className="w-1/3 lg:w-full shrink-0 aspect-square bg-zinc-800/30 rounded-2xl mb-0 lg:mb-6 flex items-center justify-center p-3 lg:p-6 border border-white/5 h-fit">
                               <img src={`${import.meta.env.BASE_URL}/gallery/home/led_screen_1.webp`} alt="P4.8 Outdoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
                            </div>
-                           <h5 className="text-2xl font-bold mb-1">P4.8 Outdoor</h5>
-                           <p className="text-gray-500 text-sm mb-8">SMD 2727 Heavy Duty</p>
-                           <div className="space-y-6 flex-1">
-                              <div>
-                                 <div className="text-4xl font-light text-white mb-1">6,000<span className="text-lg text-gray-500 ml-1">nits</span></div>
-                                 <div className="text-xs text-gray-400 uppercase tracking-wider">Peak Brightness</div>
+                           <div className="flex flex-col flex-1">
+                              <h5 className="text-xl lg:text-2xl font-bold mb-1">P4.8 Outdoor</h5>
+                              <p className="text-gray-500 text-xs lg:text-sm mb-4 lg:mb-8">SMD 2727 Heavy Duty</p>
+                              <div className="space-y-3 lg:space-y-6 flex-1">
+                                 <div>
+                                    <div className="text-2xl lg:text-4xl font-light text-white mb-0.5 lg:mb-1">6,000<span className="text-sm lg:text-lg text-gray-500 ml-1">nits</span></div>
+                                    <div className="text-[10px] lg:text-xs text-gray-400 uppercase tracking-wider">Peak Brightness</div>
+                                 </div>
+                                 <div className="h-px w-full bg-gradient-to-r from-zinc-800 to-transparent"></div>
+                                 <div>
+                                    <div className="text-2xl lg:text-4xl font-light text-white mb-0.5 lg:mb-1">3840<span className="text-sm lg:text-lg text-gray-500 ml-1">Hz</span></div>
+                                    <div className="text-[10px] lg:text-xs text-gray-400 uppercase tracking-wider">Refresh Rate</div>
+                                 </div>
                               </div>
-                              <div className="h-px w-full bg-gradient-to-r from-zinc-800 to-transparent"></div>
-                              <div>
-                                 <div className="text-4xl font-light text-white mb-1">3840<span className="text-lg text-gray-500 ml-1">Hz</span></div>
-                                 <div className="text-xs text-gray-400 uppercase tracking-wider">Refresh Rate</div>
-                              </div>
+                              <a href="/specs/P4.8_Outdoor_Specs.pdf" download className="mt-5 lg:mt-8 w-full bg-white text-black font-semibold py-2.5 lg:py-3.5 text-sm lg:text-base rounded-xl hover:bg-gray-200 transition-colors flex justify-center items-center gap-2">
+                                 <Download className="w-4 h-4 lg:w-[18px] lg:h-[18px]" /> Download Specs
+                              </a>
                            </div>
-                           <a href="/specs/P4.8_Outdoor_Specs.pdf" download className="mt-8 w-full bg-white text-black font-semibold py-3.5 rounded-xl hover:bg-gray-200 transition-colors flex justify-center items-center gap-2">
-                              <Download size={18} /> Download Specs
-                           </a>
                         </div>
 
-                        {/* View All Outdoor */}
-                        <div className="bg-zinc-900/30 border border-zinc-800 border-dashed rounded-3xl p-8 flex flex-col items-center justify-center text-center hover:bg-zinc-900/50 transition-all cursor-pointer group">
-                           <div className="w-16 h-16 rounded-full bg-zinc-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                              <ChevronRight size={24} className="text-gray-400" />
+                        {/* [UPDATE]: View All Card made horizontal on mobile */}
+                        <div className="bg-zinc-900/30 border border-zinc-800 border-dashed rounded-3xl p-5 lg:p-8 flex flex-row lg:flex-col items-center justify-start lg:justify-center text-left lg:text-center hover:bg-zinc-900/50 transition-all cursor-pointer group gap-5 lg:gap-0">
+                           <div className="w-14 h-14 lg:w-16 lg:h-16 shrink-0 rounded-full bg-zinc-800 flex items-center justify-center lg:mb-4 group-hover:scale-110 transition-transform">
+                              <ChevronRight className="text-gray-400 w-5 h-5 lg:w-[24px] lg:h-[24px]" />
                            </div>
-                           <h5 className="text-xl font-medium mb-2">View All Outdoor</h5>
-                           <p className="text-gray-500 text-sm">Explore touring, festival, and structural LED.</p>
+                           <div>
+                              <h5 className="text-lg lg:text-xl font-medium mb-1 lg:mb-2">View All Outdoor</h5>
+                              <p className="text-gray-500 text-xs lg:text-sm">Explore touring, festival, and structural LED.</p>
+                           </div>
                         </div>
                      </div>
                   </div>
@@ -227,59 +236,68 @@ function HomePage({ region }) {
                         <span className="bg-zinc-800 text-gray-300 text-xs px-2 py-1 rounded">High-Res & Broadcast</span>
                      </div>
                      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        
+                        {/* [UPDATE]: Restructured product cards to be horizontal on mobile */}
                         {/* Indoor Spec Card 1 */}
-                        <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-6 hover:border-zinc-700 transition-all flex flex-col">
-                           <div className="w-full aspect-square bg-zinc-800/30 rounded-2xl mb-6 flex items-center justify-center p-6 border border-white/5">
+                        <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-5 lg:p-6 hover:border-zinc-700 transition-all flex flex-row lg:flex-col gap-5 lg:gap-0">
+                           <div className="w-1/3 lg:w-full shrink-0 aspect-square bg-zinc-800/30 rounded-2xl mb-0 lg:mb-6 flex items-center justify-center p-3 lg:p-6 border border-white/5 h-fit">
                               <img src={`${import.meta.env.BASE_URL}/gallery/home/led_screen_2.webp`} alt="P2.6 Indoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
                            </div>
-                           <h5 className="text-2xl font-bold mb-1">P2.6 Indoor</h5>
-                           <p className="text-gray-500 text-sm mb-8">SMD 1515 Ultra Fine</p>
-                           <div className="space-y-6 flex-1">
-                              <div>
-                                 <div className="text-4xl font-light text-white mb-1">1,200<span className="text-lg text-gray-500 ml-1">nits</span></div>
-                                 <div className="text-xs text-gray-400 uppercase tracking-wider">Peak Brightness</div>
+                           <div className="flex flex-col flex-1">
+                              <h5 className="text-xl lg:text-2xl font-bold mb-1">P2.6 Indoor</h5>
+                              <p className="text-gray-500 text-xs lg:text-sm mb-4 lg:mb-8">SMD 1515 Ultra Fine</p>
+                              <div className="space-y-3 lg:space-y-6 flex-1">
+                                 <div>
+                                    <div className="text-2xl lg:text-4xl font-light text-white mb-0.5 lg:mb-1">1,200<span className="text-sm lg:text-lg text-gray-500 ml-1">nits</span></div>
+                                    <div className="text-[10px] lg:text-xs text-gray-400 uppercase tracking-wider">Peak Brightness</div>
+                                 </div>
+                                 <div className="h-px w-full bg-gradient-to-r from-zinc-800 to-transparent"></div>
+                                 <div>
+                                    <div className="text-2xl lg:text-4xl font-light text-white mb-0.5 lg:mb-1">3840<span className="text-sm lg:text-lg text-gray-500 ml-1">Hz</span></div>
+                                    <div className="text-[10px] lg:text-xs text-gray-400 uppercase tracking-wider">Refresh Rate</div>
+                                 </div>
                               </div>
-                              <div className="h-px w-full bg-gradient-to-r from-zinc-800 to-transparent"></div>
-                              <div>
-                                 <div className="text-4xl font-light text-white mb-1">3840<span className="text-lg text-gray-500 ml-1">Hz</span></div>
-                                 <div className="text-xs text-gray-400 uppercase tracking-wider">Refresh Rate</div>
-                              </div>
+                              <a href="/specs/P2.6_Indoor_Specs.pdf" download className="mt-5 lg:mt-8 w-full bg-white text-black font-semibold py-2.5 lg:py-3.5 text-sm lg:text-base rounded-xl hover:bg-gray-200 transition-colors flex justify-center items-center gap-2">
+                                 <Download className="w-4 h-4 lg:w-[18px] lg:h-[18px]" /> Download Specs
+                              </a>
                            </div>
-                           <a href="/specs/P2.6_Indoor_Specs.pdf" download className="mt-8 w-full bg-white text-black font-semibold py-3.5 rounded-xl hover:bg-gray-200 transition-colors flex justify-center items-center gap-2">
-                              <Download size={18} /> Download Specs
-                           </a>
                         </div>
 
+                        {/* [UPDATE]: Restructured product cards to be horizontal on mobile */}
                         {/* Indoor Spec Card 2 */}
-                        <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-6 hover:border-zinc-700 transition-all flex flex-col">
-                           <div className="w-full aspect-square bg-zinc-800/30 rounded-2xl mb-6 flex items-center justify-center p-6 border border-white/5">
+                        <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-5 lg:p-6 hover:border-zinc-700 transition-all flex flex-row lg:flex-col gap-5 lg:gap-0">
+                           <div className="w-1/3 lg:w-full shrink-0 aspect-square bg-zinc-800/30 rounded-2xl mb-0 lg:mb-6 flex items-center justify-center p-3 lg:p-6 border border-white/5 h-fit">
                               <img src={`${import.meta.env.BASE_URL}/gallery/home/led_screen_2.webp`} alt="P3.9 Indoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
                            </div>
-                           <h5 className="text-2xl font-bold mb-1">P3.9 Indoor</h5>
-                           <p className="text-gray-500 text-sm mb-8">SMD 2020 Black Face</p>
-                           <div className="space-y-6 flex-1">
-                              <div>
-                                 <div className="text-4xl font-light text-white mb-1">1,000<span className="text-lg text-gray-500 ml-1">nits</span></div>
-                                 <div className="text-xs text-gray-400 uppercase tracking-wider">Peak Brightness</div>
+                           <div className="flex flex-col flex-1">
+                              <h5 className="text-xl lg:text-2xl font-bold mb-1">P3.9 Indoor</h5>
+                              <p className="text-gray-500 text-xs lg:text-sm mb-4 lg:mb-8">SMD 2020 Black Face</p>
+                              <div className="space-y-3 lg:space-y-6 flex-1">
+                                 <div>
+                                    <div className="text-2xl lg:text-4xl font-light text-white mb-0.5 lg:mb-1">1,000<span className="text-sm lg:text-lg text-gray-500 ml-1">nits</span></div>
+                                    <div className="text-[10px] lg:text-xs text-gray-400 uppercase tracking-wider">Peak Brightness</div>
+                                 </div>
+                                 <div className="h-px w-full bg-gradient-to-r from-zinc-800 to-transparent"></div>
+                                 <div>
+                                    <div className="text-2xl lg:text-4xl font-light text-white mb-0.5 lg:mb-1">140°</div>
+                                    <div className="text-[10px] lg:text-xs text-gray-400 uppercase tracking-wider">Viewing Angle</div>
+                                 </div>
                               </div>
-                              <div className="h-px w-full bg-gradient-to-r from-zinc-800 to-transparent"></div>
-                              <div>
-                                 <div className="text-4xl font-light text-white mb-1">140°</div>
-                                 <div className="text-xs text-gray-400 uppercase tracking-wider">Viewing Angle</div>
-                              </div>
+                              <a href="/specs/P3.9_Indoor_Specs.pdf" download className="mt-5 lg:mt-8 w-full bg-white text-black font-semibold py-2.5 lg:py-3.5 text-sm lg:text-base rounded-xl hover:bg-gray-200 transition-colors flex justify-center items-center gap-2">
+                                 <Download className="w-4 h-4 lg:w-[18px] lg:h-[18px]" /> Download Specs
+                              </a>
                            </div>
-                           <a href="/specs/P3.9_Indoor_Specs.pdf" download className="mt-8 w-full bg-white text-black font-semibold py-3.5 rounded-xl hover:bg-gray-200 transition-colors flex justify-center items-center gap-2">
-                              <Download size={18} /> Download Specs
-                           </a>
                         </div>
 
-                        {/* View All Indoor */}
-                        <div className="bg-zinc-900/30 border border-zinc-800 border-dashed rounded-3xl p-8 flex flex-col items-center justify-center text-center hover:bg-zinc-900/50 transition-all cursor-pointer group">
-                           <div className="w-16 h-16 rounded-full bg-zinc-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                              <ChevronRight size={24} className="text-gray-400" />
+                        {/* [UPDATE]: View All Card made horizontal on mobile */}
+                        <div className="bg-zinc-900/30 border border-zinc-800 border-dashed rounded-3xl p-5 lg:p-8 flex flex-row lg:flex-col items-center justify-start lg:justify-center text-left lg:text-center hover:bg-zinc-900/50 transition-all cursor-pointer group gap-5 lg:gap-0">
+                           <div className="w-14 h-14 lg:w-16 lg:h-16 shrink-0 rounded-full bg-zinc-800 flex items-center justify-center lg:mb-4 group-hover:scale-110 transition-transform">
+                              <ChevronRight className="text-gray-400 w-5 h-5 lg:w-[24px] lg:h-[24px]" />
                            </div>
-                           <h5 className="text-xl font-medium mb-2">View All Indoor</h5>
-                           <p className="text-gray-500 text-sm">Explore corporate, broadcast, and curved LED.</p>
+                           <div>
+                              <h5 className="text-lg lg:text-xl font-medium mb-1 lg:mb-2">View All Indoor</h5>
+                              <p className="text-gray-500 text-xs lg:text-sm">Explore corporate, broadcast, and curved LED.</p>
+                           </div>
                         </div>
                      </div>
                   </div>
