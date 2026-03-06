@@ -155,7 +155,6 @@ function HomePage({ region }) {
                      Our fleet of modular LED panels is engineered for maximum brightness and flawless refresh rates, indoors or out.
                   </p>
                </div>
-
                <div className="space-y-20">
                   {/********************* OUTDOOR LED SCREENS *********************/}
                   <div>
@@ -310,19 +309,18 @@ function HomePage({ region }) {
 
                   {/* Right Column: Stacked Highlights */}
                   <div className="flex flex-col gap-6">
-                     <div className="flex-1 rounded-3xl overflow-hidden relative group border border-white/10 aspect-square md:aspect-auto">
-                        {/* Replace src with your local gallery image */}
+                     <div className="flex-1 rounded-3xl overflow-hidden relative group border border-white/10 aspect-video md:aspect-auto">
                         <img 
                            src={`${import.meta.env.BASE_URL}/gallery/home/featured_ferrari.webp`}
                            alt="Corporate Event" 
-                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                           onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2012&auto=format&fit=crop" }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-6">
                            <h4 className="text-xl font-bold text-white">Ferrari F80 Release</h4>
                         </div>
                      </div>
-                     
-                     <div className="flex-1 rounded-3xl overflow-hidden relative group bg-zinc-900/50 backdrop-blur-sm border border-white/10 p-6 flex flex-col items-center justify-center text-center hover:bg-zinc-800 transition-colors cursor-pointer aspect-square md:aspect-auto">
+                     <div className="flex-1 rounded-3xl overflow-hidden relative group bg-zinc-900/50 backdrop-blur-sm border border-white/10 p-6 flex flex-col items-center justify-center text-center hover:bg-zinc-800 transition-colors cursor-pointer aspect-video md:aspect-auto">
                         <div className="w-14 h-14 rounded-full bg-blue-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                            <ChevronRight size={28} className="text-blue-500" />
                         </div>
@@ -698,6 +696,7 @@ export default function App() {
             )}
          </nav>
 
+         {/******************************** MAIN APP SWITCHER *******************************/}
          <main>
             {renderPage()}
          </main>
@@ -712,7 +711,9 @@ export default function App() {
                   onClick={() => navigateTo('home')}
                   onError={(e) => { e.target.src = "https://ui-avatars.com/api/?name=GT&background=000000&color=ffffff&rounded=true" }}
                />
-               <p>© {new Date().getFullYear()} Global-Tecs Production Services. All rights reserved.</p>
+               <p>
+                  © {new Date().getFullYear()} Global-Tecs Production Services. <span className="block md:inline">All rights reserved.</span>
+               </p>
             </div>
          </footer>
       </div>
