@@ -3,11 +3,13 @@
 // React hook imports:
 import {
    useState,
-   useEffect
+   useEffect,
+   useRef
 } from 'react';
 
 // Lucide svg icon imports:
 import {
+   ChevronLeft,
    ChevronRight,
    Download,
    Facebook,
@@ -53,30 +55,88 @@ function WIPPage({ title }) {
 
 // Reusable Project Card Template for Sub-Pages
 function ProjectCard({ title, description, images }) {
+   const scrollRef = useRef(null);
+   const [selectedImage, setSelectedImage] = useState(null);
+
+   if (!images || images.length === 0) return null;
+
+   const scroll = (direction) => {
+      if (scrollRef.current && typeof scrollRef.current.offsetWidth === 'number') {
+         const { current } = scrollRef;
+         // Scroll by exactly one thumbnail width roughly
+         const scrollAmount = direction === 'left' ? -(current.offsetWidth / 1.5) : (current.offsetWidth / 1.5);
+         current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+   };
+
    return (
-      <div className="bg-zinc-900/30 backdrop-blur-sm border border-white/10 rounded-3xl p-6 lg:p-10 mb-12 flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
-         {/* Left Side: Project Info */}
-         <div className="w-full lg:w-1/3 space-y-4">
-            <h3 className="text-3xl font-bold text-white">{title}</h3>
+      <div className="bg-zinc-900/30 backdrop-blur-sm border border-white/10 rounded-3xl p-6 lg:p-10 mb-12 flex flex-col gap-6 lg:gap-8">
+         {/* Top: Project Info */}
+         <div className="w-full max-w-4xl space-y-4">
+            <h3 className="text-3xl lg:text-4xl font-bold text-white">{title}</h3>
             <p className="text-gray-400 leading-relaxed text-sm md:text-base">{description}</p>
-            <button className="text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1 group pt-2 text-sm uppercase tracking-widest">
-               View Details <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </button>
          </div>
          
-         {/* Right Side: Horizontal Image Carousel (Apple Style Native Scroll) */}
-         {/* Uses invisible scrollbars for a clean look */}
-         <div className="w-full lg:w-2/3 flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-            {images.map((img, idx) => (
-               <div key={idx} className="min-w-[85%] sm:min-w-[60%] shrink-0 snap-center aspect-video rounded-2xl overflow-hidden border border-white/10 relative group bg-zinc-800">
-                  <img 
-                     src={img} 
-                     alt={`${title} - Gallery Image ${idx + 1}`} 
-                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-                  />
-               </div>
-            ))}
+         {/* Bottom: Horizontal Image Carousel with locked Square Thumbnails */}
+         <div className="relative w-full group mt-2">
+            {/* Left Arrow */}
+            <button
+               onClick={() => scroll('left')}
+               className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black/90 text-white p-3 rounded-full backdrop-blur-md border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity hidden md:flex items-center justify-center shadow-xl"
+            >
+               <ChevronLeft size={24} />
+            </button>
+
+            {/* Thumbnails Track: Added items-center to stop vertical stretching bug */}
+            <div 
+               ref={scrollRef}
+               className="flex items-center overflow-x-auto gap-4 pb-4 snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+            >
+               {images.map((img, idx) => (
+                  <div 
+                     key={idx} 
+                     onClick={() => setSelectedImage(img)}
+                     // Locked widths (w-56, w-64, w-72) to prevent the "ginormous" sizing bug
+                     className="w-56 sm:w-64 md:w-72 shrink-0 snap-start aspect-square rounded-2xl overflow-hidden border border-white/10 relative cursor-pointer hover:border-white/30 transition-all shadow-lg"
+                  >
+                     <img 
+                        src={img} 
+                        alt={`${title} - Gallery Thumbnail ${idx + 1}`} 
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" 
+                     />
+                  </div>
+               ))}
+            </div>
+
+            {/* Right Arrow */}
+            <button
+               onClick={() => scroll('right')}
+               className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black/90 text-white p-3 rounded-full backdrop-blur-md border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity hidden md:flex items-center justify-center shadow-xl"
+            >
+               <ChevronRight size={24} />
+            </button>
          </div>
+
+         {/* Lightbox Modal for Full Screen Image */}
+         {selectedImage && (
+            <div 
+               className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-8"
+               onClick={() => setSelectedImage(null)}
+            >
+               <button 
+                  className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 p-3 rounded-full transition-colors z-50"
+                  onClick={(e) => { e.stopPropagation(); setSelectedImage(null); }}
+               >
+                  <X size={24} />
+               </button>
+               <img 
+                  src={selectedImage} 
+                  alt="Full screen preview" 
+                  className="max-w-full max-h-full object-contain rounded-xl shadow-2xl"
+                  onClick={(e) => e.stopPropagation()} 
+               />
+            </div>
+         )}
       </div>
    );
 }
@@ -140,8 +200,8 @@ function SportsPage({ region }) {
          <section className="py-24 bg-black relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                <div className="mb-16">
-                  <h2 className="text-blue-500 font-semibold tracking-widest uppercase text-sm mb-4">Case Studies</h2>
-                  <h3 className="text-3xl md:text-5xl font-bold tracking-tight text-white">Recent Deployments.</h3>
+                  <h2 className="text-blue-500 font-semibold tracking-widest uppercase text-sm mb-4">SPORTS</h2>
+                  <h3 className="text-3xl md:text-5xl font-bold tracking-tight text-white">Recent Projects</h3>
                </div>
                
                {/* Maps through the array and renders a ProjectCard for each one */}
@@ -272,7 +332,6 @@ function HomePage({ region }) {
                      </div>
                      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         
-                        {/* [UPDATE]: Restructured product cards to be horizontal on mobile (flex-row) and vertical on desktop (lg:flex-col) */}
                         {/* Outdoor Spec Card 1 */}
                         <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-5 lg:p-6 hover:border-zinc-700 transition-all flex flex-row lg:flex-col gap-5 lg:gap-0">
                            <div className="w-1/3 lg:w-full shrink-0 aspect-square bg-zinc-800/30 rounded-2xl mb-0 lg:mb-6 flex items-center justify-center p-3 lg:p-6 border border-white/5 h-fit">
@@ -298,7 +357,6 @@ function HomePage({ region }) {
                            </div>
                         </div>
 
-                        {/* [UPDATE]: Restructured product cards to be horizontal on mobile */}
                         {/* Outdoor Spec Card 2 */}
                         <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-5 lg:p-6 hover:border-zinc-700 transition-all flex flex-row lg:flex-col gap-5 lg:gap-0">
                            <div className="w-1/3 lg:w-full shrink-0 aspect-square bg-zinc-800/30 rounded-2xl mb-0 lg:mb-6 flex items-center justify-center p-3 lg:p-6 border border-white/5 h-fit">
@@ -324,7 +382,6 @@ function HomePage({ region }) {
                            </div>
                         </div>
 
-                        {/* [UPDATE]: View All Card made horizontal on mobile */}
                         <div className="bg-zinc-900/30 border border-zinc-800 border-dashed rounded-3xl p-5 lg:p-8 flex flex-row lg:flex-col items-center justify-start lg:justify-center text-left lg:text-center hover:bg-zinc-900/50 transition-all cursor-pointer group gap-5 lg:gap-0">
                            <div className="w-14 h-14 lg:w-16 lg:h-16 shrink-0 rounded-full bg-zinc-800 flex items-center justify-center lg:mb-4 group-hover:scale-110 transition-transform">
                               <ChevronRight className="text-gray-400 w-5 h-5 lg:w-[24px] lg:h-[24px]" />
@@ -344,8 +401,6 @@ function HomePage({ region }) {
                         <span className="bg-zinc-800 text-gray-300 text-xs px-2 py-1 rounded">High-Res & Broadcast</span>
                      </div>
                      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        
-                        {/* [UPDATE]: Restructured product cards to be horizontal on mobile */}
                         {/* Indoor Spec Card 1 */}
                         <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-5 lg:p-6 hover:border-zinc-700 transition-all flex flex-row lg:flex-col gap-5 lg:gap-0">
                            <div className="w-1/3 lg:w-full shrink-0 aspect-square bg-zinc-800/30 rounded-2xl mb-0 lg:mb-6 flex items-center justify-center p-3 lg:p-6 border border-white/5 h-fit">
@@ -370,8 +425,6 @@ function HomePage({ region }) {
                               </a>
                            </div>
                         </div>
-
-                        {/* [UPDATE]: Restructured product cards to be horizontal on mobile */}
                         {/* Indoor Spec Card 2 */}
                         <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-5 lg:p-6 hover:border-zinc-700 transition-all flex flex-row lg:flex-col gap-5 lg:gap-0">
                            <div className="w-1/3 lg:w-full shrink-0 aspect-square bg-zinc-800/30 rounded-2xl mb-0 lg:mb-6 flex items-center justify-center p-3 lg:p-6 border border-white/5 h-fit">
@@ -396,8 +449,6 @@ function HomePage({ region }) {
                               </a>
                            </div>
                         </div>
-
-                        {/* [UPDATE]: View All Card made horizontal on mobile */}
                         <div className="bg-zinc-900/30 border border-zinc-800 border-dashed rounded-3xl p-5 lg:p-8 flex flex-row lg:flex-col items-center justify-start lg:justify-center text-left lg:text-center hover:bg-zinc-900/50 transition-all cursor-pointer group gap-5 lg:gap-0">
                            <div className="w-14 h-14 lg:w-16 lg:h-16 shrink-0 rounded-full bg-zinc-800 flex items-center justify-center lg:mb-4 group-hover:scale-110 transition-transform">
                               <ChevronRight className="text-gray-400 w-5 h-5 lg:w-[24px] lg:h-[24px]" />
