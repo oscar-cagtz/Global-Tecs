@@ -135,7 +135,7 @@ export default function App() {
             {/****************************** BACKGROUND IMAGE *******************************/}
             <div className="absolute inset-0 z-0 bg-black">
                <img
-                  src={`${import.meta.env.BASE_URL}hero_bg.webp`}
+                  src={`${import.meta.env.BASE_URL}/gallery/home/hero_bg.webp`}
                   alt="Massive LED Concert Stage"
                   className="w-full h-full object-cover opacity-50"
                   onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1540039155733-d7696d4eb5d4?q=80&w=2074&auto=format&fit=crop" }}
@@ -222,7 +222,7 @@ export default function App() {
          {/************************************ PRODUCTS ************************************/}
          <section id="hardware" className="py-16 md:py-32 bg-black relative border-t border-white/5">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-               <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+               <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
                   <div>
                      <h2 className="text-blue-500 font-semibold tracking-widest uppercase text-sm mb-4">The Hardware</h2>
                      <h3 className="text-4xl md:text-6xl font-bold tracking-tight">Pixel perfect.<br/>Any environment.</h3>
@@ -232,7 +232,7 @@ export default function App() {
                   </p>
                </div>
 
-               <div className="space-y-12 md:space-y-20">
+               <div className="space-y-20">
                   {/********************* OUTDOOR LED SCREENS *********************/}
                   <div>
                      <div className="flex items-center gap-4 mb-8 border-b border-white/10 pb-4">
@@ -243,7 +243,7 @@ export default function App() {
                         {/* Outdoor Spec Card 1 */}
                         <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-6 hover:border-zinc-700 transition-all flex flex-col">
                            <div className="w-full aspect-square bg-zinc-800/30 rounded-2xl mb-6 flex items-center justify-center p-6 border border-white/5">
-                              <img src={`${import.meta.env.BASE_URL}led_screen_1.webp`} alt="P3.9 Outdoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
+                              <img src={`${import.meta.env.BASE_URL}/gallery/home/led_screen_1.webp`} alt="P3.9 Outdoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
                            </div>
                            <h5 className="text-2xl font-bold mb-1">P3.9 Outdoor</h5>
                            <p className="text-gray-500 text-sm mb-8">SMD 1921 High-Bright</p>
@@ -266,7 +266,7 @@ export default function App() {
                         {/* Outdoor Spec Card 2 */}
                         <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-6 hover:border-zinc-700 transition-all flex flex-col">
                            <div className="w-full aspect-square bg-zinc-800/30 rounded-2xl mb-6 flex items-center justify-center p-6 border border-white/5">
-                              <img src={`${import.meta.env.BASE_URL}led_screen_1.webp`} alt="P4.8 Outdoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
+                              <img src={`${import.meta.env.BASE_URL}/gallery/home/led_screen_1.webp`} alt="P4.8 Outdoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
                            </div>
                            <h5 className="text-2xl font-bold mb-1">P4.8 Outdoor</h5>
                            <p className="text-gray-500 text-sm mb-8">SMD 2727 Heavy Duty</p>
@@ -307,7 +307,7 @@ export default function App() {
                         {/* Indoor Spec Card 1 */}
                         <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-6 hover:border-zinc-700 transition-all flex flex-col">
                            <div className="w-full aspect-square bg-zinc-800/30 rounded-2xl mb-6 flex items-center justify-center p-6 border border-white/5">
-                              <img src={`${import.meta.env.BASE_URL}led_screen_2.webp`} alt="P2.6 Indoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
+                              <img src={`${import.meta.env.BASE_URL}/gallery/home/led_screen_2.webp`} alt="P2.6 Indoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
                            </div>
                            <h5 className="text-2xl font-bold mb-1">P2.6 Indoor</h5>
                            <p className="text-gray-500 text-sm mb-8">SMD 1515 Ultra Fine</p>
@@ -330,7 +330,7 @@ export default function App() {
                         {/* Indoor Spec Card 2 */}
                         <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-6 hover:border-zinc-700 transition-all flex flex-col">
                            <div className="w-full aspect-square bg-zinc-800/30 rounded-2xl mb-6 flex items-center justify-center p-6 border border-white/5">
-                              <img src={`${import.meta.env.BASE_URL}led_screen_2.webp`} alt="P3.9 Indoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
+                              <img src={`${import.meta.env.BASE_URL}/gallery/home/led_screen_2.webp`} alt="P3.9 Indoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
                            </div>
                            <h5 className="text-2xl font-bold mb-1">P3.9 Indoor</h5>
                            <p className="text-gray-500 text-sm mb-8">SMD 2020 Black Face</p>
@@ -379,7 +379,7 @@ export default function App() {
                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-8">
                         <div>
                            <p className="text-blue-400 font-semibold tracking-wider text-xs uppercase mb-2">Featured Installation</p>
-                           <h4 className="text-3xl font-bold text-white">Stadium Tours & Festivals</h4>
+                           <h4 className="text-3xl font-bold text-white">VidantaWorld Concert Series</h4>
                         </div>
                      </div>
                   </div>
@@ -389,12 +389,12 @@ export default function App() {
                      <div className="flex-1 rounded-3xl overflow-hidden relative group border border-white/10 aspect-square md:aspect-auto">
                         {/* Replace src with your local gallery image */}
                         <img 
-                           src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2012&auto=format&fit=crop" 
+                           src={`${import.meta.env.BASE_URL}/gallery/home/featured_ferrari.webp`}
                            alt="Corporate Event" 
                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-6">
-                           <h4 className="text-xl font-bold text-white">Corporate Summits</h4>
+                           <h4 className="text-xl font-bold text-white">Ferrari F80 Release</h4>
                         </div>
                      </div>
                      
@@ -414,43 +414,61 @@ export default function App() {
                      <h2 className="text-blue-500 font-semibold tracking-widest uppercase text-sm mb-4">About Global-Tecs</h2>
                      <h3 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Redefining live production architecture.</h3>
                      <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-                        Founded with a singular vision to bridge the gap between creative ambition and technical execution, we have grown into North America's premier LED and production house. We don't just supply gear; we engineer experiences.
+                        As a company with more than 35 years in show-business, we have extensive experience in the entertainment industry. Our trajectory is the
+                        result of the work carried out in productions for renowned artists in some of the most important venues in Mexico, Canada and the USA.
+                        In addition we have been suppliers to some of the most important production companies of shows in those countries. We produce and deliver
+                        High Audio, Lighting and Video Technologies for events. From the planning to execution we create an unforgettable sensory experiences.
                      </p>
                      
                      {/* Data Stats */}
                      <div className="grid grid-cols-2 gap-8 pt-8 border-t border-white/10">
                         <div>
-                           <div className="text-5xl font-light text-white mb-2">15<span className="text-blue-500">+</span></div>
+                           <div className="text-5xl font-light text-white mb-2">35<span className="text-blue-500">+</span></div>
                            <div className="text-xs text-gray-500 uppercase tracking-widest font-semibold">Years Experience</div>
                         </div>
                         <div>
-                           <div className="text-5xl font-light text-white mb-2">500<span className="text-blue-500">+</span></div>
+                           <div className="text-5xl font-light text-white mb-2">200<span className="text-blue-500">+</span></div>
                            <div className="text-xs text-gray-500 uppercase tracking-widest font-semibold">Stages Built</div>
                         </div>
                      </div>
                   </div>
 
-                  {/* Glassmorphism Mission Card */}
-                  <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-zinc-900/80 to-zinc-950/80 p-8 lg:p-12 backdrop-blur-xl shadow-2xl">
+                  {/* Glassmorphism Mission & Vision Card */}
+                  <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-zinc-900/80 to-zinc-950/80 p-8 lg:p-12 backdrop-blur-xl shadow-2xl flex flex-col gap-8">
                      <Globe size={120} className="text-white/5 absolute -top-10 -right-10 pointer-events-none" />
-                     <h4 className="text-2xl font-bold mb-4 text-white">Our Mission</h4>
-                     <p className="text-gray-300 mb-8 leading-relaxed">
-                        To deliver zero-compromise visual experiences that elevate the world's most demanding artists, brands, and broadcasts across the globe.
-                     </p>
-                     <ul className="space-y-4">
-                        <li className="flex items-center gap-4 text-gray-300 bg-white/5 p-3 rounded-xl border border-white/5">
-                           <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div> 
-                           <span className="font-medium">Engineering Excellence</span>
-                        </li>
-                        <li className="flex items-center gap-4 text-gray-300 bg-white/5 p-3 rounded-xl border border-white/5">
-                           <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div> 
-                           <span className="font-medium">Turnkey Global Logistics</span>
-                        </li>
-                        <li className="flex items-center gap-4 text-gray-300 bg-white/5 p-3 rounded-xl border border-white/5">
-                           <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div> 
-                           <span className="font-medium">Flawless Live Execution</span>
-                        </li>
-                     </ul>
+                     
+                     {/* Mission Section */}
+                     <div className="relative z-10">
+                        <h4 className="text-2xl font-bold mb-4 text-white">Our Mission</h4>
+                        <p className="text-gray-300 mb-6 leading-relaxed">
+                           To deliver zero-compromise visual experiences that elevate the world's most demanding artists, brands, and broadcasts across the globe.
+                        </p>
+                        <ul className="space-y-4">
+                           <li className="flex items-center gap-4 text-gray-300 bg-white/5 p-3 rounded-xl border border-white/5">
+                              <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div> 
+                              <span className="font-medium">Engineering Excellence</span>
+                           </li>
+                           <li className="flex items-center gap-4 text-gray-300 bg-white/5 p-3 rounded-xl border border-white/5">
+                              <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div> 
+                              <span className="font-medium">Turnkey International Logistics</span>
+                           </li>
+                           <li className="flex items-center gap-4 text-gray-300 bg-white/5 p-3 rounded-xl border border-white/5">
+                              <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div> 
+                              <span className="font-medium">Flawless Live Execution</span>
+                           </li>
+                        </ul>
+                     </div>
+
+                     {/* Divider */}
+                     <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent relative z-10"></div>
+
+                     {/* Vision Section */}
+                     <div className="relative z-10">
+                        <h4 className="text-2xl font-bold mb-4 text-white">Our Vision</h4>
+                        <p className="text-gray-300 leading-relaxed">
+                           To be an international standard in immersive stage architecture, relentlessly pushing the boundaries of what is visually possible in live entertainment.
+                        </p>
+                     </div>
                   </div>
                </div>
 
