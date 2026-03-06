@@ -146,12 +146,13 @@ function SportsPage({ region }) {
    // This array makes it incredibly easy to add new projects later
    const sportsProjects = [
       {
-         title: "National Stadium Perimeter",
-         description: "A comprehensive 360-degree LED perimeter display deployed for the national soccer championship. Engineered for maximum visibility under direct sunlight and high-speed broadcast refresh rates without flickering on camera.",
+         title: "Mexico Open at Vidanta (PGA TOUR)",
+         description: "PGA TOUR is the world’s leading golf league all over the world. The Mexico Open At Vidanta edition is the one that host the best level of golfers and took place at Vidanta Riviera Nayarit.",
          images: [
-            "https://images.unsplash.com/photo-1508344928928-7137b29de216?q=80&w=2070&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?q=80&w=2123&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1518605368461-1e1e38ce8fba?q=80&w=2070&auto=format&fit=crop"
+            `${import.meta.env.BASE_URL}/gallery/sports/vidantaopen/vidantaopen1.webp`,
+            `${import.meta.env.BASE_URL}/gallery/sports/vidantaopen/vidantaopen2.webp`,
+            `${import.meta.env.BASE_URL}/gallery/sports/vidantaopen/vidantaopen3.webp`,
+            `${import.meta.env.BASE_URL}/gallery/sports/vidantaopen/vidantaopen4.webp`
          ]
       },
       {
@@ -179,7 +180,7 @@ function SportsPage({ region }) {
          <section className="relative h-[50vh] md:h-[60vh] flex flex-col items-center justify-center overflow-hidden border-b border-white/10">
             <div className="absolute inset-0 z-0 bg-black">
                <img
-                  src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=2070&auto=format&fit=crop"
+                  src={`${import.meta.env.BASE_URL}/gallery/sports/hero_sports.webp`}
                   alt="Sports Arena"
                   className="w-full h-full object-cover opacity-40"
                />
@@ -206,11 +207,11 @@ function SportsPage({ region }) {
                
                {/* Maps through the array and renders a ProjectCard for each one */}
                {sportsProjects.map((proj, idx) => (
-                  <ProjectCard 
-                     key={idx} 
-                     title={proj.title} 
-                     description={proj.description} 
-                     images={proj.images} 
+                  <ProjectCard
+                     key={idx}
+                     title={proj.title}
+                     description={proj.description}
+                     images={proj.images}
                   />
                ))}
             </div>
