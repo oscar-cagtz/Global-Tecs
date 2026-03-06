@@ -10,126 +10,50 @@ import {
 import {
    ChevronRight,
    Download,
+   Facebook,
    Globe,
+   Instagram,
    Mail,
    MapPin,
    Menu,
    Phone,
    Send,
-   X,
-   Facebook,
-   Instagram,
-   Twitter
+   Twitter,
+   Wrench,
+   X
 } from 'lucide-react';
 
 // Global-Tecs logo:
 import gtDarkLogo  from './assets/logos/logo_dark.webp';
 //import gtLightLogo from './assets/logos/logo_light.ebp'; // Enable if there's any need for a light theme.
 
-/////////////////////////////////////// APPLICATION ///////////////////////////////////////
+///////////////////////////////////////// PAGES /////////////////////////////////////////
 
-export default function App() {
-   const [isScrolled, setIsScrolled] = useState(false);
-   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-   const [region, setRegion] = useState('CAN'); // 'CAN', 'MEX', 'USA'
-
-   // Listen to scroll events to change the navbar styling
-   useEffect(() => {
-      const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-   };
-   window.addEventListener('scroll', handleScroll);
-   return () => window.removeEventListener('scroll', handleScroll);
-   }, []);
-
-   // Website code divided per section
+function WIPPage({ title }) {
    return (
-      <div className="min-h-screen bg-black text-white font-sans selection:bg-blue-500 selection:text-white">
-         {/********************************* HEADER / NAVBAR ********************************/}
-         <nav
-            className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-               isScrolled ? 'bg-black/70 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
-            }`}
-         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-               <div className="flex items-center justify-between h-16">
-                  {/****************************** LOGO / TITLE *****************************/}
-                  <div className="flex-shrink-0 cursor-pointer flex items-center gap-3 hover:opacity-80 transition-opacity">
-                     <img
-                        src={gtDarkLogo}
-                        alt="Global-Tecs Globe"
-                        className="h-8 w-8 object-contain rounded-full" 
-                     />
-                     <span className="text-xl font-semibold tracking-tighter text-white">Global-Tecs</span>
-                  </div>
-                  {/*************************** DESKTOP NAVIGATION **************************/}
-                  <div className="hidden lg:block overflow-x-auto">
-                     <div className="ml-8 flex items-baseline space-x-6 text-xs font-semibold text-gray-300 uppercase tracking-widest">
-                        <a href="#live-events" className="hover:text-white transition-colors">Live Events</a>
-                        <a href="#corporate"   className="hover:text-white transition-colors">Corporate</a>
-                        <a href="#nightlife"   className="hover:text-white transition-colors">Nightlife</a>
-                        <a href="#sports"      className="hover:text-white transition-colors">Sports</a>
-                        <a href="#broadcast"   className="hover:text-white transition-colors">Broadcast</a>
-                        <a href="#advertising" className="hover:text-white transition-colors">Advertising</a>
-                        <a href="#it-av"       className="hover:text-white transition-colors">IT/AV </a>
-                     </div>
-                  </div>
-                  {/****************** REGION SWITCHER / MOBILE MENU BUTTON *****************/}
-                  <div className="flex items-center gap-4">
-                     {/*********************** DESKTOP REGION SWITCHER **********************/}
-                     <div className="hidden sm:flex items-center gap-2 text-sm text-gray-300 bg-white/5 px-3 py-1.5 rounded-full border border-white/10 hover:bg-white/10 transition-colors">
-                        <Globe size={14} className="text-blue-400" />
-                        <select
-                           value={region}
-                           onChange={(e) => setRegion(e.target.value)}
-                           className="bg-transparent border-none text-gray-300 text-xs font-medium cursor-pointer focus:ring-0 outline-none appearance-none pr-4"
-                           style={{ backgroundImage: `url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%239CA3AF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right .1rem top 50%', backgroundSize: '.65rem auto' }}
-                        >
-                           <option value="CAN" className="bg-zinc-900">CAN</option>
-                           <option value="MEX" className="bg-zinc-900">MEX</option>
-                           <option value="USA" className="bg-zinc-900">USA</option>
-                        </select>
-                     </div>
-                     {/*********************** MOBILE MENU BUTTON ***********************/}
-                     <div className="lg:hidden">
-                        <button
-                           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                           className="text-gray-300 hover:text-white p-2"
-                        >
-                           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                        </button>
-                     </div>
-                  </div>
-               </div>
+      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black pt-20">
+         <div className="absolute inset-0 z-0 bg-gradient-to-b from-zinc-900/20 to-black"></div>
+         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto flex flex-col items-center">
+            <div className="w-20 h-20 rounded-full bg-blue-500/10 flex items-center justify-center mb-8 border border-blue-500/20">
+               <Wrench size={40} className="text-blue-500" />
             </div>
-            {/************************** MOBILE NAVIGATION DROPDOWN *************************/}
-            {mobileMenuOpen && (
-               <div className="lg:hidden bg-black/95 backdrop-blur-xl border-b border-white/10 absolute w-full">
-                  <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
-                     <a href="#live-events" className="block px-3 py-3 text-gray-300 hover:text-white text-lg">Live Events</a>
-                     <a href="#corporate"   className="block px-3 py-3 text-gray-300 hover:text-white text-lg">Corporate</a>
-                     <a href="#nightlife"   className="block px-3 py-3 text-gray-300 hover:text-white text-lg">Nightlife</a>
-                     <a href="#sports"      className="block px-3 py-3 text-gray-300 hover:text-white text-lg">Sports</a>
-                     <a href="#broadcast"   className="block px-3 py-3 text-gray-300 hover:text-white text-lg">Broadcast</a>
-                     <a href="#advertising" className="block px-3 py-3 text-gray-300 hover:text-white text-lg">Advertising</a>
-                     <a href="#it-av"       className="block px-3 py-3 text-gray-300 hover:text-white text-lg">IT/AV</a>
-              
-                     <div className="flex justify-center items-center gap-2 pt-4 border-t border-white/10 mt-2 text-gray-300">
-                        <Globe size={18} />
-                        <select
-                           value={region}
-                           onChange={(e) => setRegion(e.target.value)}
-                           className="bg-transparent border-none text-lg text-gray-300 cursor-pointer focus:ring-0 outline-none"
-                        >
-                           <option value="CAN" className="bg-zinc-900">Canada</option>
-                           <option value="MEX" className="bg-zinc-900">Mexico</option>
-                           <option value="USA" className="bg-zinc-900">USA</option>
-                        </select>
-                     </div>
-                  </div>
-               </div>
-            )}
-         </nav>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 text-white">
+               {title}
+            </h1>
+            <h2 className="text-2xl text-blue-400 font-medium tracking-widest uppercase mb-8">
+               Under Construction
+            </h2>
+            <p className="text-lg text-gray-400 max-w-xl mx-auto leading-relaxed">
+               We are currently compiling the gallery and case studies for our {title} division. Please check back soon to see our latest global installations.
+            </p>
+         </div>
+      </section>
+   );
+}
+
+function HomePage({ region }) {
+   return (
+      <>
          {/********************************** HERO SECTION **********************************/}
          <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
             {/****************************** BACKGROUND IMAGE *******************************/}
@@ -636,13 +560,156 @@ export default function App() {
                </div>
             </div>
          </section>
+      </>
+   );
+}
+
+/////////////////////////////////////// APPLICATION SHELL ///////////////////////////////////////
+
+export default function App() {
+   // Define the state constants for application activity.
+   const [currentPage, setCurrentPage] = useState('home');
+   
+   const [isScrolled, setIsScrolled] = useState(false);
+   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+   const [region, setRegion] = useState('CAN'); // 'CAN', 'MEX', 'USA'
+
+   // Listen to scroll events to change the navbar styling.
+   useEffect(() => {
+      const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+   };
+   window.addEventListener('scroll', handleScroll);
+   return () => window.removeEventListener('scroll', handleScroll);
+   }, []);
+
+   // Helper function to handle navigation cleanly
+   const navigateTo = (page) => {
+      setCurrentPage(page);
+      setMobileMenuOpen(false); // Close mobile menu if open
+      window.scrollTo(0, 0); // Scroll to top of new page
+   };
+
+   // Switch statement to point to the new pages.
+   const renderPage = () => {
+      switch(currentPage) {
+         case 'home':        return <HomePage region={region} />;
+         case 'live-events': return <WIPPage title="Live Events" />;
+         case 'corporate':   return <WIPPage title="Corporate" />;
+         case 'nightlife':   return <WIPPage title="Nightlife" />;
+         case 'sports':      return <WIPPage title="Sports" />;
+         case 'broadcast':   return <WIPPage title="Broadcast" />;
+         case 'advertising': return <WIPPage title="Advertising" />;
+         case 'it-av':       return <WIPPage title="IT/AV" />;
+         default:            return <HomePage region={region} />;
+      }
+   };
+
+   // Website code divided per section
+   return (
+      <div className="min-h-screen bg-black text-white font-sans selection:bg-blue-500 selection:text-white">
+         {/********************************* HEADER / NAVBAR ********************************/}
+         <nav
+            className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+               isScrolled ? 'bg-black/70 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
+            }`}
+         >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+               <div className="flex items-center justify-between h-16">
+                  {/****************************** LOGO / TITLE *****************************/}
+                  <div 
+                     onClick={() => navigateTo('home')}
+                     className="flex-shrink-0 cursor-pointer flex items-center gap-3 hover:opacity-80 transition-opacity"
+                  >
+                     <img
+                        src={gtDarkLogo}
+                        alt="Global-Tecs Globe"
+                        className="h-8 w-8 object-contain rounded-full"
+                        onError={(e) => { e.target.src = "https://ui-avatars.com/api/?name=GT&background=000000&color=ffffff&rounded=true" }}
+                     />
+                     <span className="text-xl font-semibold tracking-tighter text-white">Global-Tecs</span>
+                  </div>
+                  {/*************************** DESKTOP NAVIGATION **************************/}
+                  <div className="hidden lg:block overflow-x-auto">
+                     <div className="ml-8 flex items-baseline space-x-6 text-xs font-semibold text-gray-300 uppercase tracking-widest">
+                        <button onClick={() => navigateTo('live-events')} className={`hover:text-white transition-colors ${currentPage === 'live-events' ? 'text-white' : ''}`}>Live Events</button>
+                        <button onClick={() => navigateTo('corporate')}   className={`hover:text-white transition-colors ${currentPage === 'corporate'   ? 'text-white' : ''}`}>Corporate</button>
+                        <button onClick={() => navigateTo('nightlife')}   className={`hover:text-white transition-colors ${currentPage === 'nightlife'   ? 'text-white' : ''}`}>Nightlife</button>
+                        <button onClick={() => navigateTo('sports')}      className={`hover:text-white transition-colors ${currentPage === 'sports'      ? 'text-white' : ''}`}>Sports</button>
+                        <button onClick={() => navigateTo('broadcast')}   className={`hover:text-white transition-colors ${currentPage === 'broadcast'   ? 'text-white' : ''}`}>Broadcast</button>
+                        <button onClick={() => navigateTo('advertising')} className={`hover:text-white transition-colors ${currentPage === 'advertising' ? 'text-white' : ''}`}>Advertising</button>
+                        <button onClick={() => navigateTo('it-av')}       className={`hover:text-white transition-colors ${currentPage === 'it-av'       ? 'text-white' : ''}`}>IT/AV </button>
+                     </div>
+                  </div>
+                  {/****************** REGION SWITCHER / MOBILE MENU BUTTON *****************/}
+                  <div className="flex items-center gap-4">
+                     {/*********************** DESKTOP REGION SWITCHER **********************/}
+                     <div className="hidden sm:flex items-center gap-2 text-sm text-gray-300 bg-white/5 px-3 py-1.5 rounded-full border border-white/10 hover:bg-white/10 transition-colors">
+                        <Globe size={14} className="text-blue-400" />
+                        <select
+                           value={region}
+                           onChange={(e) => setRegion(e.target.value)}
+                           className="bg-transparent border-none text-gray-300 text-xs font-medium cursor-pointer focus:ring-0 outline-none appearance-none pr-4"
+                           style={{ backgroundImage: `url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%239CA3AF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right .1rem top 50%', backgroundSize: '.65rem auto' }}
+                        >
+                           <option value="CAN" className="bg-zinc-900">CAN</option>
+                           <option value="MEX" className="bg-zinc-900">MEX</option>
+                           <option value="USA" className="bg-zinc-900">USA</option>
+                        </select>
+                     </div>
+                     {/*********************** MOBILE MENU BUTTON ***********************/}
+                     <div className="lg:hidden">
+                        <button
+                           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                           className="text-gray-300 hover:text-white p-2"
+                        >
+                           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            {/************************** MOBILE NAVIGATION DROPDOWN *************************/}
+            {mobileMenuOpen && (
+               <div className="lg:hidden bg-black/95 backdrop-blur-xl border-b border-white/10 absolute w-full">
+                  <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                     <button onClick={() => navigateTo('live-events')} className="block w-full px-3 py-3 text-gray-300 hover:text-white text-lg">Live Events</button>
+                     <button onClick={() => navigateTo('corporate')}   className="block w-full px-3 py-3 text-gray-300 hover:text-white text-lg">Corporate</button>
+                     <button onClick={() => navigateTo('nightlife')}   className="block w-full px-3 py-3 text-gray-300 hover:text-white text-lg">Nightlife</button>
+                     <button onClick={() => navigateTo('sports')}      className="block w-full px-3 py-3 text-gray-300 hover:text-white text-lg">Sports</button>
+                     <button onClick={() => navigateTo('broadcast')}   className="block w-full px-3 py-3 text-gray-300 hover:text-white text-lg">Broadcast</button>
+                     <button onClick={() => navigateTo('advertising')} className="block w-full px-3 py-3 text-gray-300 hover:text-white text-lg">Advertising</button>
+                     <button onClick={() => navigateTo('it-av')}       className="block w-full px-3 py-3 text-gray-300 hover:text-white text-lg">IT/AV</button>
+
+                     <div className="flex justify-center items-center gap-2 pt-4 border-t border-white/10 mt-2 text-gray-300">
+                        <Globe size={18} />
+                        <select
+                           value={region}
+                           onChange={(e) => setRegion(e.target.value)}
+                           className="bg-transparent border-none text-lg text-gray-300 cursor-pointer focus:ring-0 outline-none"
+                        >
+                           <option value="CAN" className="bg-zinc-900">Canada</option>
+                           <option value="MEX" className="bg-zinc-900">Mexico</option>
+                           <option value="USA" className="bg-zinc-900">USA</option>
+                        </select>
+                     </div>
+                  </div>
+               </div>
+            )}
+         </nav>
+
+         <main>
+            {renderPage()}
+         </main>
+
          {/************************************* FOOTER *************************************/}
          <footer className="border-t border-white/10 py-12 text-center text-gray-500 text-sm bg-black">
             <div className="flex flex-col items-center justify-center gap-4">
-               <img
+               <img 
                   src={gtDarkLogo}
                   alt="Logo"
-                  className="h-20 w-20 opacity-50 grayscale"
+                  className="h-20 w-20 opacity-50 grayscale cursor-pointer hover:opacity-100 transition-opacity"
+                  onClick={() => navigateTo('home')}
                   onError={(e) => { e.target.src = "https://ui-avatars.com/api/?name=GT&background=000000&color=ffffff&rounded=true" }}
                />
                <p>© {new Date().getFullYear()} Global-Tecs Production Services. All rights reserved.</p>
