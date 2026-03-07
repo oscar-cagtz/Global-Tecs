@@ -165,7 +165,7 @@ function StageConfigurator({ isOpen, onClose }) {
                   <div className="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="text-center text-gray-500 relative z-10">
                      <Calculator size={48} className="mx-auto mb-4 opacity-50 text-blue-500" />
-                     <h3 className="text-xl font-medium text-white mb-2">Interactive Canvas Module</h3>
+                     <h3 className="text-xl font-medium text-white mb-2">WORK IN PROGRESS</h3>
                      <p className="max-w-md mx-auto text-sm leading-relaxed">
                         This area will house the dynamic visualizer. Sliders will update the screen geometry in real-time, calculating resolution, weight, and power draw instantly.
                      </p>
@@ -367,10 +367,10 @@ function LiveEventsPage({ region }) {
    // This array makes it incredibly easy to add new projects later
    const eventsProjects = [
       {
-         title: "EXAMPLE #1",
-         description: "Lorem Ipsum Dolor Sit Amet",
+         title: "Circles Music Festival",
+         description: "The most important Native Festival in Vancouver, showing all their followers the meaning of their culture and giving music with the best artist of the country.",
          images: [
-            "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
+            `${BASE_URL}/gallery/liveevents/project_circles.webp`,
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
@@ -450,10 +450,10 @@ function CorporatePage({ region }) {
    // This array makes it incredibly easy to add new projects later
    const eventsProjects = [
       {
-         title: "EXAMPLE #1",
-         description: "Lorem Ipsum Dolor Sit Amet",
+         title: "Nutcracker Gala by Red Racer Beer",
+         description: "The Nutcracker Gala is a fundraiser that help to fight against autism. We are part of this social event featuring RED RACER BEER, brand that is always worried and continuing helping to have a better world.",
          images: [
-            "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
+            `${BASE_URL}/gallery/corporate/project_nutcracker.webp`,
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
@@ -533,10 +533,10 @@ function NightlifePage({ region }) {
    // This array makes it incredibly easy to add new projects later
    const eventsProjects = [
       {
-         title: "EXAMPLE #1",
-         description: "Lorem Ipsum Dolor Sit Amet",
+         title: "Studio Night Club",
+         description: "Studio Night Club is one of best night clubs at Vancouver Downtown. We build, install and program Led Displays and Lighting for the club, this one perform and always keep innovating.",
          images: [
-            "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
+            `${BASE_URL}/gallery/nightlife/project_studion.webp`,
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
@@ -629,7 +629,7 @@ function SportsPage({ region }) {
          title: "Las Revanchas at Zocalo, Mexico City",
          description: "Las Revanchas at Zocalo in Mexico City is one of the best shows we have been involved, celebrating the dual year with GERMANY-MEXICO. We convert the center of this city on a big stadium with a big production.",
          images: [
-            "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
+            `${BASE_URL}/gallery/sports/project_revanchas.webp`,
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
@@ -639,7 +639,7 @@ function SportsPage({ region }) {
          title: "Softball World Cup",
          description: "As you know we love sports world, and we were happy of being part of this incredible world cup altogether with Hob Cast Media, being ultra wide requiered of special softwares, and specific control.",
          images: [
-            "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
+            `${BASE_URL}/gallery/sports/project_softball.webp`,
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
@@ -783,20 +783,20 @@ function AdvertisingPage({ region }) {
    // This array makes it incredibly easy to add new projects later
    const eventsProjects = [
       {
-         title: "EXAMPLE #1",
-         description: "Lorem Ipsum Dolor Sit Amet",
+         title: "Central City Brewery Liquor Store",
+         description: "Central City Brewery Liquor Store, use the video wall as an advertising mode seasonally. By this way the image and presence of the shop keep growing as the best liquor store on their zone.",
          images: [
-            "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
+            `${BASE_URL}/gallery/advertising/project_centralc.webp`,
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
          ]
       },
       {
-         title: "EXAMPLE #2",
-         description: "Lorem Ipsum Dolor Sit Amet",
+         title: "UCA University",
+         description: "This University ask us to make a permanent installation for them, advertising and giving a new image for their school, making it being one of the best of the city.",
          images: [
-            "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
+            `${BASE_URL}/gallery/advertising/project_uca.webp`,
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
@@ -866,10 +866,10 @@ function ITAVPage({ region }) {
    // This array makes it incredibly easy to add new projects later
    const eventsProjects = [
       {
-         title: "EXAMPLE #1",
-         description: "Lorem Ipsum Dolor Sit Amet",
+         title: "Hootsuite MX",
+         description: "Dream Field Solutions is the company that let us being part of the installation of IT/AV on the new Hootsuite Mexico Office. By this we continuing growing on different branches of the market.",
          images: [
-            "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
+            `${BASE_URL}/gallery/itav/project_hootsuite.webp`,
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
@@ -977,10 +977,10 @@ function HomePage({ region }) {
                      onClick={() => setShowConfigurator(true)} 
                      className="bg-white text-black px-8 py-4 rounded-full font-medium hover:scale-105 transition-transform duration-300"
                   >
-                     Open a New Model
+                     Stage Configuration
                   </button>
                   <a href="#hardware" className="flex items-center justify-center gap-2 px-8 py-4 rounded-full font-medium text-white hover:bg-white/10 transition-colors duration-300">
-                     Explore Tech Specs <ChevronRight size={20} />
+                     Explore LED Displays <ChevronRight size={20} />
                   </a>
                </div>
             </div>
