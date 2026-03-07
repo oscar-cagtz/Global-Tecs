@@ -944,6 +944,42 @@ function ITAVPage({ region }) {
 
 function HomePage({ region }) {
    const [showConfigurator, setShowConfigurator] = useState(false);
+   const [formStatus, setFormStatus] = useState('idle'); // 'idle' | 'sending' | 'success'
+
+   const handleFormSubmit = async (e) => {
+      e.preventDefault();
+      setFormStatus('sending');
+
+      // Automatically grab all the data from the inputs
+      const formData = new FormData(e.target);
+      
+      // Inject your Web3Forms Access Key securely
+      formData.append("access_key", "3c0aeb4d-0b32-4946-bffb-646e23b252ec");
+
+      try {
+         // Send the data to Web3Forms
+         const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+         });
+
+         const data = await response.json();
+
+         if (data.success) {
+            setFormStatus('success');
+            e.target.reset(); // Clear the input fields after sending
+            setTimeout(() => setFormStatus('idle'), 5000); // Hide success message after 5s
+         } else {
+            console.error("Web3Forms Error:", data);
+            setFormStatus('idle');
+            alert("Something went wrong. Please try again.");
+         }
+      } catch (error) {
+         console.error("Network Error:", error);
+         setFormStatus('idle');
+         alert("Something went wrong. Please check your internet connection.");
+      }
+   };
 
    return (
       <>
@@ -1407,67 +1443,86 @@ function HomePage({ region }) {
                   </div>
                   {/* Right Column: Glassmorphism Contact Form */}
                   <div className="bg-zinc-900/30 backdrop-blur-md border border-white/10 rounded-3xl p-8 lg:p-10 flex flex-col h-full">
-                     <form className="space-y-6 flex-1 flex flex-col" onSubmit={(e) => e.preventDefault()}>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                           {/* First Name */}
-                           <div className="space-y-2">
-                              <label className="text-sm font-medium text-gray-400">First Name</label>
-                              <input
-                                 type="text"
-                                 placeholder="Write your name"
-                                 className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
-                              />
+                     <form className="space-y-6 flex-1 flex flex-col relative" onSubmit={handleFormSubmit}>
+                        
+                        {/* Success Overlay */}
+                        {formStatus === 'success' && (
+                           <div className="absolute inset-0 z-20 bg-zinc-900/90 backdrop-blur-md rounded-xl flex flex-col items-center justify-center animate-in fade-in duration-300">
+                              <div className="w-16 h-16 bg-blue-500/20 text-blue-500 rounded-full flex items-center justify-center mb-4 shadow-[0_0_20px_rgba(59,130,246,0.3)]">
+                                 <Send size={32} />
+                              </div>
+                              <h4 className="text-2xl font-bold text-white mb-2">Message Sent!</h4>
+                              <p className="text-gray-400 text-center max-w-xs">
+                                 Thank you for reaching out. The Global-Tecs team will get back to you within 24 hours.
+                              </p>
                            </div>
-                           {/* Last Name */}
-                           <div className="space-y-2">
-                              <label className="text-sm font-medium text-gray-400">Last Name</label>
+                        )}
+                        <div className={`flex-1 flex flex-col space-y-6 transition-opacity duration-300 ${formStatus === 'success' ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                              <div className="space-y-2">
+                                 <label className="text-sm font-medium text-gray-400">First Name</label>
                                  <input
                                     type="text"
-                                    placeholder="Write your last name"
+                                    name="first_name"
+                                    required
+                                    placeholder="Write your name"
                                     className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
                                  />
+                              </div>
+                              <div className="space-y-2">
+                                 <label className="text-sm font-medium text-gray-400">Last Name</label>
+                                    <input
+                                       type="text"
+                                       name="last_name"
+                                       required
+                                       placeholder="Write your last name"
+                                       className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                                    />
+                              </div>
                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                           {/* Email */}
-                           <div className="space-y-2">
-                              <label className="text-sm font-medium text-gray-400">Email Address</label>
-                              <input
-                                 type="email"
-                                 placeholder="Write your e-mail"
-                                 className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
-                              />
+                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                              <div className="space-y-2">
+                                 <label className="text-sm font-medium text-gray-400">Email Address</label>
+                                 <input
+                                    type="email"
+                                    name="email"
+                                    required
+                                    placeholder="Write your e-mail"
+                                    className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                                 />
+                              </div>
+                              <div className="space-y-2">
+                                 <label className="text-sm font-medium text-gray-400">Phone Number</label>
+                                 <input
+                                    type="tel"
+                                    name="phone"
+                                    required
+                                    placeholder="Write your phone number"
+                                    className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                                 />
+                              </div>
                            </div>
-                           {/* Phone Number */}
-                           <div className="space-y-2">
-                              <label className="text-sm font-medium text-gray-400">Phone Number</label>
-                              <input
-                                 type="tel"
-                                 placeholder="Write your phone number"
-                                 className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
-                              />
+                           <div className="space-y-2 flex-1 flex flex-col">
+                              <label className="text-sm font-medium text-gray-400">Message</label>
+                              <textarea
+                                 name="message"
+                                 required
+                                 placeholder="Write your message..."
+                                 className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all resize-none flex-1"
+                              ></textarea>
                            </div>
+                           <button
+                              type="submit"
+                              disabled={formStatus === 'sending'}
+                              className={`w-full font-medium rounded-xl px-4 py-4 flex items-center justify-center gap-2 transition-all ${formStatus === 'sending' ? 'bg-gray-400 text-gray-800 cursor-not-allowed' : 'bg-white text-black hover:bg-gray-200'}`}
+                           >
+                              {formStatus === 'sending' ? 'SENDING...' : 'SEND MESSAGE'} 
+                              {formStatus !== 'sending' && <Send size={18} />}
+                           </button>
+                           <p className="text-xs text-gray-500 text-center mt-4">
+                              By submitting this form, you agree to our privacy policy.
+                           </p>
                         </div>
-
-                        {/* Project Details */}
-                        <div className="space-y-2 flex-1 flex flex-col">
-                           <label className="text-sm font-medium text-gray-400">Message</label>
-                           <textarea
-                              placeholder="Write your message..."
-                              className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all resize-none flex-1"
-                           ></textarea>
-                        </div>
-                        {/* Submit Button */}
-                        <button
-                           type="submit"
-                           className="w-full bg-white text-black font-medium rounded-xl px-4 py-4 flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors"
-                        >
-                           SEND MESSAGE <Send size={18} />
-                        </button>
-                        <p className="text-xs text-gray-500 text-center mt-4">
-                           By submitting this form, you agree to our privacy policy.
-                        </p>
                      </form>
                   </div>
                </div>
