@@ -6,5 +6,5 @@ export default defineConfig({
   plugins: [react()],
   // GitHub repository name, do not change unless the remote repo
   // changes names or the project is ported elsewhere.
-  base: '/Global-Tecs/',
+  base: '/', // Change to '/Global-Tecs/' if the domain is the default one.
 })
