@@ -184,9 +184,9 @@ function GlobalMap() {
    // Define the deployment locations with approximate X and Y coordinates (percentages)
    // Top Left (0,0) to Bottom Right (100, 100)
    const locations = [
-      { id: 'vancouver',   city: "Vancouver, BC",   region: "Canada", x: 28, y: 16, project: "Ferrari F80 Presentation", img: `${BASE_URL}/gallery/home/featured_ferrari.webp` },
-      { id: 'ptovallarta', city: "Puerto Vallarta", region: "Mexico", x: 43, y: 87, project: "Mexico Open at Vidanta",   img: `${BASE_URL}/gallery/home/featured_vidanta.webp` },
-      { id: 'cdmx',        city: "Mexico City",     region: "Mexico", x: 47, y: 91, project: "Las Revanchas al Zocalo",  img: `${BASE_URL}/gallery/home/featured_revanchas.webp` },
+      { id: 'vancouver',   city: "Vancouver, BC",   region: "Canada", x: 28, y: 16, project: "Ferrari F80 Presentation", img: "/gallery/home/featured_ferrari.webp" },
+      { id: 'ptovallarta', city: "Puerto Vallarta", region: "Mexico", x: 43, y: 87, project: "Mexico Open at Vidanta",   img: "/gallery/home/featured_vidanta.webp" },
+      { id: 'cdmx',        city: "Mexico City",     region: "Mexico", x: 47, y: 91, project: "Las Revanchas al Zocalo",  img: "/gallery/home/featured_revanchas.webp" },
    ];
 
    return (
@@ -205,7 +205,7 @@ function GlobalMap() {
                <div className="absolute inset-0 bg-zinc-900/30 rounded-3xl border border-white/10 overflow-hidden shadow-2xl pointer-events-none">
                   <div className="absolute inset-0 z-0">
                      <img 
-                        src={`${BASE_URL}/gallery/home/map_north_america.webp`}
+                        src={"/gallery/home/map_north_america.webp"}
                         alt="North America Map Background"
                         className="w-full h-full object-cover opacity-80 mix-blend-lighten"
                         onError={(e) => { 
@@ -331,7 +331,7 @@ function PixelVisualizer() {
             <div className="flex-1 w-full aspect-video bg-black rounded-2xl border border-white/10 overflow-hidden relative shadow-2xl">
                {/* Base Stage Image */}
                <img 
-                  src={`${BASE_URL}/gallery/home/toucan_example.webp`}
+                  src={"/gallery/home/toucan_example.webp"}
                   alt="Visualizer Demo" 
                   className="w-full h-full object-cover transition-transform duration-100 origin-center"
                   style={{ transform: `scale(${1 + (effectStrength * 0.15)})` }}
@@ -370,7 +370,7 @@ function LiveEventsPage({ region }) {
          title: "Circles Music Festival",
          description: "The most important Native Festival in Vancouver, showing all their followers the meaning of their culture and giving music with the best artist of the country.",
          images: [
-            `${BASE_URL}/gallery/liveevents/project_circles.webp`,
+            "/gallery/liveevents/project_circles.webp",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
@@ -404,7 +404,7 @@ function LiveEventsPage({ region }) {
          <section className="relative h-[50vh] md:h-[60vh] flex flex-col items-center justify-center overflow-hidden border-b border-white/10">
             <div className="absolute inset-0 z-0 bg-black">
                <img
-                  src={`${BASE_URL}/gallery/liveevents/hero_liveevents.webp`}
+                  src={"/gallery/liveevents/hero_liveevents.webp"}
                   alt="Live Events Hero"
                   className="w-full h-full object-cover opacity-70"
                />
@@ -453,7 +453,7 @@ function CorporatePage({ region }) {
          title: "Nutcracker Gala by Red Racer Beer",
          description: "The Nutcracker Gala is a fundraiser that help to fight against autism. We are part of this social event featuring RED RACER BEER, brand that is always worried and continuing helping to have a better world.",
          images: [
-            `${BASE_URL}/gallery/corporate/project_nutcracker.webp`,
+            "/gallery/corporate/project_nutcracker.webp",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
@@ -487,7 +487,7 @@ function CorporatePage({ region }) {
          <section className="relative h-[50vh] md:h-[60vh] flex flex-col items-center justify-center overflow-hidden border-b border-white/10">
             <div className="absolute inset-0 z-0 bg-black">
                <img
-                  src={`${BASE_URL}/gallery/corporate/hero_corporate.webp`}
+                  src={"/gallery/corporate/hero_corporate.webp"}
                   alt="Corporate Hero"
                   className="w-full h-full object-cover opacity-70"
                />
@@ -536,7 +536,7 @@ function NightlifePage({ region }) {
          title: "Studio Night Club",
          description: "Studio Night Club is one of best night clubs at Vancouver Downtown. We build, install and program Led Displays and Lighting for the club, this one perform and always keep innovating.",
          images: [
-            `${BASE_URL}/gallery/nightlife/project_studion.webp`,
+            "/gallery/nightlife/project_studion.webp",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
@@ -570,7 +570,7 @@ function NightlifePage({ region }) {
          <section className="relative h-[50vh] md:h-[60vh] flex flex-col items-center justify-center overflow-hidden border-b border-white/10">
             <div className="absolute inset-0 z-0 bg-black">
                <img
-                  src={`${BASE_URL}/gallery/nightlife/hero_nightlife.webp`}
+                  src={"/gallery/nightlife/hero_nightlife.webp"}
                   alt="Nightlife Hero"
                   className="w-full h-full object-cover opacity-70"
                />
@@ -619,17 +619,17 @@ function SportsPage({ region }) {
          title: "Mexico Open at Vidanta (PGA TOUR)",
          description: "The PGA TOUR is the world's leading golf league all over the world. The Mexico Open At Vidanta edition is the one that host the best level of golfers and took place at Vidanta Riviera Nayarit.",
          images: [
-            `${BASE_URL}/gallery/sports/vidantaopen/vidantaopen1.webp`,
-            `${BASE_URL}/gallery/sports/vidantaopen/vidantaopen2.webp`,
-            `${BASE_URL}/gallery/sports/vidantaopen/vidantaopen3.webp`,
-            `${BASE_URL}/gallery/sports/vidantaopen/vidantaopen4.webp`
+            "/gallery/sports/vidantaopen/vidantaopen1.webp",
+            "/gallery/sports/vidantaopen/vidantaopen2.webp",
+            "/gallery/sports/vidantaopen/vidantaopen3.webp",
+            "/gallery/sports/vidantaopen/vidantaopen4.webp"
          ]
       },
       {
          title: "Las Revanchas at Zocalo, Mexico City",
          description: "Las Revanchas at Zocalo in Mexico City is one of the best shows we have been involved, celebrating the dual year with GERMANY-MEXICO. We convert the center of this city on a big stadium with a big production.",
          images: [
-            `${BASE_URL}/gallery/sports/project_revanchas.webp`,
+            "/gallery/sports/project_revanchas.webp",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
@@ -639,7 +639,7 @@ function SportsPage({ region }) {
          title: "Softball World Cup",
          description: "As you know we love sports world, and we were happy of being part of this incredible world cup altogether with Hob Cast Media, being ultra wide requiered of special softwares, and specific control.",
          images: [
-            `${BASE_URL}/gallery/sports/project_softball.webp`,
+            "/gallery/sports/project_softball.webp",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
@@ -653,7 +653,7 @@ function SportsPage({ region }) {
          <section className="relative h-[50vh] md:h-[60vh] flex flex-col items-center justify-center overflow-hidden border-b border-white/10">
             <div className="absolute inset-0 z-0 bg-black">
                <img
-                  src={`${BASE_URL}/gallery/sports/hero_sports.webp`}
+                  src={"/gallery/sports/hero_sports.webp"}
                   alt="Sports Arena"
                   className="w-full h-full object-cover opacity-70"
                />
@@ -737,7 +737,7 @@ function BroadcastPage({ region }) {
          <section className="relative h-[50vh] md:h-[60vh] flex flex-col items-center justify-center overflow-hidden border-b border-white/10">
             <div className="absolute inset-0 z-0 bg-black">
                <img
-                  src={`${BASE_URL}/gallery/broadcast/hero_broadcast.webp`}
+                  src={"/gallery/broadcast/hero_broadcast.webp"}
                   alt="Broadcast Hero"
                   className="w-full h-full object-cover opacity-70"
                />
@@ -786,7 +786,7 @@ function AdvertisingPage({ region }) {
          title: "Central City Brewery Liquor Store",
          description: "Central City Brewery Liquor Store, use the video wall as an advertising mode seasonally. By this way the image and presence of the shop keep growing as the best liquor store on their zone.",
          images: [
-            `${BASE_URL}/gallery/advertising/project_centralc.webp`,
+            "/gallery/advertising/project_centralc.webp",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
@@ -796,7 +796,7 @@ function AdvertisingPage({ region }) {
          title: "UCA University",
          description: "This University ask us to make a permanent installation for them, advertising and giving a new image for their school, making it being one of the best of the city.",
          images: [
-            `${BASE_URL}/gallery/advertising/project_uca.webp`,
+            "/gallery/advertising/project_uca.webp",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
@@ -820,7 +820,7 @@ function AdvertisingPage({ region }) {
          <section className="relative h-[50vh] md:h-[60vh] flex flex-col items-center justify-center overflow-hidden border-b border-white/10">
             <div className="absolute inset-0 z-0 bg-black">
                <img
-                  src={`${BASE_URL}/gallery/advertising/hero_advertising.webp`}
+                  src={"/gallery/advertising/hero_advertising.webp"}
                   alt="Advertising Hero"
                   className="w-full h-full object-cover opacity-70"
                />
@@ -869,7 +869,7 @@ function ITAVPage({ region }) {
          title: "Hootsuite MX",
          description: "Dream Field Solutions is the company that let us being part of the installation of IT/AV on the new Hootsuite Mexico Office. By this we continuing growing on different branches of the market.",
          images: [
-            `${BASE_URL}/gallery/itav/project_hootsuite.webp`,
+            "/gallery/itav/project_hootsuite.webp",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
             "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
@@ -903,7 +903,7 @@ function ITAVPage({ region }) {
          <section className="relative h-[50vh] md:h-[60vh] flex flex-col items-center justify-center overflow-hidden border-b border-white/10">
             <div className="absolute inset-0 z-0 bg-black">
                <img
-                  src={`${BASE_URL}/gallery/itav/hero_itav.webp`}
+                  src={"/gallery/itav/hero_itav.webp"}
                   alt="ITAV Hero"
                   className="w-full h-full object-cover opacity-70"
                />
@@ -988,7 +988,7 @@ function HomePage({ region }) {
             {/****************************** BACKGROUND IMAGE *******************************/}
             <div className="absolute inset-0 z-0 bg-black">
                <img
-                  src={`${BASE_URL}/gallery/home/hero_bg.webp`}
+                  src={"/gallery/home/hero_bg.webp"}
                   alt="Massive LED Concert Stage"
                   className="w-full h-full object-cover opacity-70"
                   onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1540039155733-d7696d4eb5d4?q=80&w=2074&auto=format&fit=crop" }}
@@ -1039,39 +1039,39 @@ function HomePage({ region }) {
                <div className="flex w-max animate-scroll hover:[animation-play-state:paused]">
                   {/* First Set of Logos */}
                   <div className="flex shrink-0 gap-16 md:gap-32 items-center px-8 md:px-16">
-                     <img src={`${BASE_URL}/partner_logos/logo_alazraki.webp`} alt="Alazraki S"  className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_azteca.webp`}   alt="TV Azteca"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_centralc.webp`} alt="Central C"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_gorgo.webp`}    alt="Gorgomish"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_gracies.webp`}  alt="Gracies"     className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_lba.webp`}      alt="LBA"         className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_ocesa.webp`}    alt="OCESA"       className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_open.webp`}     alt="Mexico Open" className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_pga.webp`}      alt="PGA"         className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_redracer.webp`} alt="Redracer"    className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_salinas.webp`}  alt="G Salinas"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_smt.webp`}      alt="SMT"         className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_studionc.webp`} alt="Studio NC"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_tec.webp`}      alt="Tec de MTY"  className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_vidanta.webp`}  alt="Vidanta"     className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_alazraki.webp"} alt="Alazraki S"  className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_azteca.webp"}   alt="TV Azteca"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_centralc.webp"} alt="Central C"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_gorgo.webp"}    alt="Gorgomish"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_gracies.webp"}  alt="Gracies"     className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_lba.webp"}      alt="LBA"         className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_ocesa.webp"}    alt="OCESA"       className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_open.webp"}     alt="Mexico Open" className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_pga.webp"}      alt="PGA"         className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_redracer.webp"} alt="Redracer"    className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_salinas.webp"}  alt="G Salinas"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_smt.webp"}      alt="SMT"         className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_studionc.webp"} alt="Studio NC"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_tec.webp"}      alt="Tec de MTY"  className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_vidanta.webp"}  alt="Vidanta"     className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
                   </div>
                   {/* Second Set (Exact Duplicate for seamless loop illusion) */}
                   <div className="flex shrink-0 gap-16 md:gap-32 items-center px-8 md:px-16">
-                     <img src={`${BASE_URL}/partner_logos/logo_alazraki.webp`} alt="Alazraki S"  className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_azteca.webp`}   alt="TV Azteca"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_centralc.webp`} alt="Central C"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_gorgo.webp`}    alt="Gorgomish"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_gracies.webp`}  alt="Gracies"     className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_lba.webp`}      alt="LBA"         className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_ocesa.webp`}    alt="OCESA"       className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_open.webp`}     alt="Mexico Open" className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_pga.webp`}      alt="PGA"         className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_redracer.webp`} alt="Redracer"    className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_salinas.webp`}  alt="G Salinas"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_smt.webp`}      alt="SMT"         className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_studionc.webp`} alt="Studio NC"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_tec.webp`}      alt="Tec de MTY"  className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
-                     <img src={`${BASE_URL}/partner_logos/logo_vidanta.webp`}  alt="Vidanta"     className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_alazraki.webp"} alt="Alazraki S"  className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_azteca.webp"}   alt="TV Azteca"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_centralc.webp"} alt="Central C"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_gorgo.webp"}    alt="Gorgomish"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_gracies.webp"}  alt="Gracies"     className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_lba.webp"}      alt="LBA"         className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_ocesa.webp"}    alt="OCESA"       className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_open.webp"}     alt="Mexico Open" className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_pga.webp"}      alt="PGA"         className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_redracer.webp"} alt="Redracer"    className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_salinas.webp"}  alt="G Salinas"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_smt.webp"}      alt="SMT"         className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_studionc.webp"} alt="Studio NC"   className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_tec.webp"}      alt="Tec de MTY"  className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
+                     <img src={"/partner_logos/logo_vidanta.webp"}  alt="Vidanta"     className="h-12 md:h-20 w-auto object-contain shrink-0 opacity-50 brightness-0 invert hover:opacity-100 transition-opacity cursor-pointer" />
                   </div>
                </div>
             </div>
@@ -1107,7 +1107,7 @@ function HomePage({ region }) {
                         {/* Outdoor Spec Card 1 */}
                         <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-5 lg:p-6 hover:border-zinc-700 transition-all flex flex-row lg:flex-col gap-5 lg:gap-0">
                            <div className="w-1/3 lg:w-full shrink-0 aspect-square bg-zinc-800/30 rounded-2xl mb-0 lg:mb-6 flex items-center justify-center p-3 lg:p-6 border border-white/5 h-fit">
-                              <img src={`${BASE_URL}/gallery/home/led_screen_1.webp`} alt="P3.9 Outdoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
+                              <img src={"/gallery/home/led_screen_1.webp"} alt="P3.9 Outdoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
                            </div>
                            <div className="flex flex-col flex-1">
                               <h5 className="text-xl lg:text-2xl font-bold mb-1">P3.9 Outdoor</h5>
@@ -1132,7 +1132,7 @@ function HomePage({ region }) {
                         {/* Outdoor Spec Card 2 */}
                         <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-5 lg:p-6 hover:border-zinc-700 transition-all flex flex-row lg:flex-col gap-5 lg:gap-0">
                            <div className="w-1/3 lg:w-full shrink-0 aspect-square bg-zinc-800/30 rounded-2xl mb-0 lg:mb-6 flex items-center justify-center p-3 lg:p-6 border border-white/5 h-fit">
-                              <img src={`${BASE_URL}/gallery/home/led_screen_1.webp`} alt="P4.8 Outdoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
+                              <img src={"/gallery/home/led_screen_1.webp"} alt="P4.8 Outdoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
                            </div>
                            <div className="flex flex-col flex-1">
                               <h5 className="text-xl lg:text-2xl font-bold mb-1">P4.8 Outdoor</h5>
@@ -1176,7 +1176,7 @@ function HomePage({ region }) {
                         {/* Indoor Spec Card 1 */}
                         <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-5 lg:p-6 hover:border-zinc-700 transition-all flex flex-row lg:flex-col gap-5 lg:gap-0">
                            <div className="w-1/3 lg:w-full shrink-0 aspect-square bg-zinc-800/30 rounded-2xl mb-0 lg:mb-6 flex items-center justify-center p-3 lg:p-6 border border-white/5 h-fit">
-                              <img src={`${BASE_URL}/gallery/home/led_screen_2.webp`} alt="P2.6 Indoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
+                              <img src={"/gallery/home/led_screen_2.webp"} alt="P2.6 Indoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
                            </div>
                            <div className="flex flex-col flex-1">
                               <h5 className="text-xl lg:text-2xl font-bold mb-1">P2.6 Indoor</h5>
@@ -1200,7 +1200,7 @@ function HomePage({ region }) {
                         {/* Indoor Spec Card 2 */}
                         <div className="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-5 lg:p-6 hover:border-zinc-700 transition-all flex flex-row lg:flex-col gap-5 lg:gap-0">
                            <div className="w-1/3 lg:w-full shrink-0 aspect-square bg-zinc-800/30 rounded-2xl mb-0 lg:mb-6 flex items-center justify-center p-3 lg:p-6 border border-white/5 h-fit">
-                              <img src={`${BASE_URL}/gallery/home/led_screen_2.webp`} alt="P3.9 Indoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
+                              <img src={"/gallery/home/led_screen_2.webp"} alt="P3.9 Indoor LED" className="w-full h-full object-contain drop-shadow-2xl opacity-80" />
                            </div>
                            <div className="flex flex-col flex-1">
                               <h5 className="text-xl lg:text-2xl font-bold mb-1">P3.9 Indoor</h5>
@@ -1261,7 +1261,7 @@ function HomePage({ region }) {
                   <div className="flex flex-col gap-6">
                      <div className="flex-1 rounded-3xl overflow-hidden relative group border border-white/10 aspect-video md:aspect-auto">
                         <img 
-                           src={`${BASE_URL}/gallery/home/featured_ferrari.webp`}
+                           src={"/gallery/home/featured_ferrari.webp"}
                            alt="Corporate Event" 
                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                            onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2012&auto=format&fit=crop" }}
